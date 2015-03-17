@@ -16,10 +16,8 @@ public class Symbology {
 	@SidedProxy(clientSide = "com.teamrune.symbology.client.ClientProxySymbology", serverSide = "com.teamrune.symbology.proxies.CommonProxySymbology")
 	public static CommonProxySymbology proxy;
 
-	@Instance("farts")
+	@Instance("symbology")
 	public static Symbology instance;
-	
-	private String test = "test";
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
