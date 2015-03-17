@@ -149,11 +149,3 @@ X) Effects
 	h) Undeath
 		1) Players stay "alive" until -20 hit points
 		2) changes mobs into undead version
-	
-		
-		
-	
-		
-		
-		
-	
