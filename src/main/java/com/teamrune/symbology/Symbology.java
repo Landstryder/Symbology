@@ -1,9 +1,4 @@
 package com.teamrune.symbology;
-
-<<<<<<< HEAD
-public class Symbology {
-
-=======
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -38,5 +33,4 @@ public class Symbology {
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 	}
->>>>>>> master
 }
