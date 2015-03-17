@@ -1,0 +1,11 @@
+/eclipse
+/bin
+/build
+/.gradle
+/.settings
+/gradle
+/.classpath
+/.project
+/build.gradle
+/gradlew
+/gradlew.bat
