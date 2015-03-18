@@ -1,0 +1,159 @@
+I) Objectives
+	a) Magic mod based on runes
+	b) Enchanting system using runes
+	c) Extended brewing system
+	d) Staves
+	e) New dungeons
+	f) New mobs
+	g) Multi block structures
+	h) World gen stuff
+	i) New Effects
+
+II) Runes
+	a) Elemental
+		1) Earth
+		2) Air
+		3) Fire
+		4) Water
+	b) Alignment
+		1) Good
+		2) Evil
+		3) Law
+		4) Chaos
+	c) Life
+		1) Birth
+		2) Death
+		3) Sleep
+		4) Pain
+		5) Consumption
+	d) Emotion
+		1) Fear
+		2) Confusion
+		3) Despair
+		4) Charm
+		5) Love
+		6) Hate
+	e) Color
+		1) Light
+		2) Dark
+		3) Red
+		4) Blue
+		5) Green
+		6) Invisibility
+	f) Power
+		1) Magic
+		2) Undead
+		3) Energy Drain
+		4) Permanence
+		5) Dimension
+	g) Conditions
+		1) Inflict
+		2) Protect
+		3) Area
+		4) Trigger
+		5) Silent
+		
+III) Enchanting
+	a) Basic crafting
+		1) Rune + item in basic crafting grid gives use limited effect on item
+	b) Multi Block
+		1) Pedestals
+		2) Rune Blocks
+		3) Method
+			a) Imbued item on central pedestal
+			b) Runes and items on radial pedestals
+			c) Rune blocks used for the rest of structure
+
+IV) Brewing
+	a) New brewing stand
+		1) New model
+			a) Octopus looking thing
+		2) New GUI
+			a) 8 slots around central slot
+
+V) Staves
+	a) Created using the Enchanting Multiblock
+	b) Has charges
+		1) Recharged using the enchanting multiblock
+		2) Can be made permanent at great cost
+	c) Potential effects will vary greatly based on the runes used in creation
+		1) More power and complex effects can be achieved by doing the enchanting process again with more or different runes
+		
+VI) Dungeons
+	a) Wizard Tower
+	b) Abandoned Castle
+	c) Stone Henge
+	d) Underground Labyrinth
+	c) Village Building
+		1) mini stone henge
+
+VII) Mobs
+	a) Spectre
+	b) Devil
+	c) Angel
+	d) Snake
+	e) Elementals
+		a) Lava Monster
+		b) Sea Serpent
+		c) Stone Golem
+		e) Wind Serpent
+	f) Gargoyle
+	g) Jinn
+	h) Faerie folk
+	i) Dryad
+	
+VIII) Multiblock Structures
+	a) Enchanter
+	b) Shelter
+		1) Basic - provides shelter from mobs for one night
+		2) Advanced - shelter + basic crafting devices for one night
+		3) Permanent - Shelter and basic crafting that does not despawn
+
+IX) World Gen
+	a) Plants
+		1) Some red flower
+		2) Some blue flower
+		3) Some plant to get green
+		4) Death Cap Mushroom
+		5) Ash Tree
+		6) Great Oak (2x2)
+		7) Thorn bush
+	b) Minerals
+		1) Slate
+		2) Chalk
+		3) Silver
+		4) Ruby - gemstone
+		5) Topaz - gemstone
+		6) Aventurine - gemstone
+	
+	c) Dungeons (see above)
+
+X) Effects
+	a) Charm
+		1) No effect on players
+		2) Mobs and NPCs will attack anything that is attacking caster
+	b) Fear
+		1) players move randomly away from caster
+		2) mobs path away from players
+	c) Imprison
+		1) mobs and player can't move at all
+	d) Light Blindness
+	e) Confusion
+		1) player direction keys scrambled
+		2) mobs loose target and wander
+	f) Distortion
+		1) Changes players view
+		2) Mobs change travel direction
+	g) Resistance
+		1) Helps player resist negative magic effects
+	h) Undeath
+		1) Players stay "alive" until -20 hit points
+		2) changes mobs into undead version
+	
+		
+		
+	
+		
+		
+		
+	
