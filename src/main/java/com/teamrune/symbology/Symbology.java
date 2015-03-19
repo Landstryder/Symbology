@@ -3,6 +3,10 @@ package com.teamrune.symbology;
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 
 import com.teamrune.symbology.reference.Reference;
+import com.teamrune.symbology.registers.RegisterItems;
+
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -20,14 +24,27 @@ public class Symbology {
 
 	@Instance("symbology")
 	public static Symbology instance;
+	
+	public static Item rune;
+	
+	public static CreativeTabs runesTab = new CreativeTabs("SymbologyRunes") {
+		public Item getTabIconItem() {
+			return rune;
+		}
+	};
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+
+		RegisterItems.itemRegisters();
+		proxy.addVariants();
+		
 	}
 
 	@EventHandler
 	public void load(FMLInitializationEvent event) {
 		proxy.registerSounds();
+		proxy.registerRenders();
 	}
 
 	@EventHandler
