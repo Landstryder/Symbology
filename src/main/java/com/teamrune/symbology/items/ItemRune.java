@@ -98,7 +98,11 @@ public class ItemRune extends Item
     	PROTECT(32, "protectrune"),
     	AREA(33, "arearune"),
     	TRIGGER(34, "triggerrune"),
-    	SILENT(35, "silentrune");
+    	SILENT(35, "silentrune"),
+        SELF(36, "selfrune"),
+        OTHER(37, "otherrune"),
+        TIME(38, "timerune"),
+        WORLD(39, "worldrune");
     	
     	public int getMetadata() {
     		return this.meta;

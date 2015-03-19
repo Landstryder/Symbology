@@ -35,3 +35,7 @@ item.rune.sleeprune.name=Sleep Rune
 item.rune.triggerrune.name=Trigger Rune
 item.rune.undeadrune.name=Undead Rune
 item.rune.waterrune.name=Water Rune
+item.rune.selfrune.name=Self Rune
+item.rune.otherrune.name=Others Rune
+item.rune.timerune.name=Time Rune
+item.rune.worldrune.name=World Rune

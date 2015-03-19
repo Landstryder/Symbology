@@ -58,7 +58,11 @@ public class ClientProxySymbology extends CommonProxySymbology {
 				Reference.MOD_ID + ":protectrune",
 				Reference.MOD_ID + ":arearune",
 				Reference.MOD_ID + ":triggerrune",
-				Reference.MOD_ID + ":silentrune");
+				Reference.MOD_ID + ":silentrune",
+                Reference.MOD_ID + ":selfrune",
+                Reference.MOD_ID + ":otherrune",
+                Reference.MOD_ID + ":timerune",
+                Reference.MOD_ID + ":worldrune");
 	}
 
 }

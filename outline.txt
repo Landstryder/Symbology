@@ -52,6 +52,11 @@ II) Runes
 		3) Area
 		4) Trigger
 		5) Silent
+	h) Targets
+		1) Others
+		2) Self
+		3) Time
+		4) World
 		
 III) Enchanting
 	a) Basic crafting
