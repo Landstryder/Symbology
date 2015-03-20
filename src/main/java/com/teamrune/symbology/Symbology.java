@@ -1,10 +1,13 @@
 package com.teamrune.symbology;
 
+import com.teamrune.symbology.blocks.BlockBlankRuneBlock;
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 
 import com.teamrune.symbology.reference.Reference;
+import com.teamrune.symbology.registers.RegisterBlocks;
 import com.teamrune.symbology.registers.RegisterItems;
 
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,16 +29,31 @@ public class Symbology {
 	public static Symbology instance;
 	
 	public static Item rune;
+	public static Block blank_rune_block;
+	public static Block air_rune_block;
+	public static Block earth_rune_block;
+	public static Block water_rune_block;
+	public static Block fire_rune_block;
+	public static Block target_rune_block;
+	public static Block magic_rune_block;
+	public static Block slate_block;
 	
 	public static CreativeTabs runesTab = new CreativeTabs("SymbologyRunes") {
 		public Item getTabIconItem() {
 			return rune;
 		}
 	};
+	
+	public static CreativeTabs symbologyTab = new CreativeTabs("Symbology") {
+		public Item getTabIconItem() {
+			return Item.getItemFromBlock(blank_rune_block);
+		}
+	};
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 
+		RegisterBlocks.blockRegisters();
 		RegisterItems.itemRegisters();
 		proxy.addVariants();
 		
