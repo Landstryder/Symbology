@@ -3,6 +3,7 @@ package com.teamrune.symbology.registers;
 import com.teamrune.symbology.Symbology;
 import com.teamrune.symbology.blocks.BlockAirRuneBlock;
 import com.teamrune.symbology.blocks.BlockBlankRuneBlock;
+import com.teamrune.symbology.blocks.BlockCraftingRuneBlock;
 import com.teamrune.symbology.blocks.BlockEarthRuneBlock;
 import com.teamrune.symbology.blocks.BlockFireRuneBlock;
 import com.teamrune.symbology.blocks.BlockMagicRuneBlock;
@@ -21,6 +22,7 @@ public class RegisterBlocks {
     	Symbology.fire_rune_block = new BlockFireRuneBlock();
     	Symbology.magic_rune_block = new BlockMagicRuneBlock();
     	Symbology.target_rune_block = new BlockTargetRuneBlock();
+    	Symbology.crafting_rune_block = new BlockCraftingRuneBlock();
     	Symbology.slate_block = new BlockSlateBlock();
         
         RegisterHelper.registerBlock(Symbology.blank_rune_block);
@@ -30,6 +32,7 @@ public class RegisterBlocks {
         RegisterHelper.registerBlock(Symbology.fire_rune_block);
         RegisterHelper.registerBlock(Symbology.magic_rune_block);
         RegisterHelper.registerBlock(Symbology.target_rune_block);
+        RegisterHelper.registerBlock(Symbology.crafting_rune_block);
         RegisterHelper.registerBlock(Symbology.slate_block);
     }
 	

@@ -36,6 +36,7 @@ public class Symbology {
 	public static Block fire_rune_block;
 	public static Block target_rune_block;
 	public static Block magic_rune_block;
+	public static Block crafting_rune_block;
 	public static Block slate_block;
 	
 	public static CreativeTabs runesTab = new CreativeTabs("SymbologyRunes") {
