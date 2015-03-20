@@ -10,7 +10,7 @@ public class ItemScribe extends Item
         super();
         setMaxDamage(256);
         setMaxStackSize(1);
-        setCreativeTab(Symbology.runesTab);
-        setUnlocalizedName("runescribe");
+        setCreativeTab(Symbology.symbologyTab);
+        setUnlocalizedName("scribe");
     }
 }

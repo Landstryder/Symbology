@@ -29,6 +29,8 @@ public class Symbology {
 	public static Symbology instance;
 	
 	public static Item rune;
+	public static Item mortar;
+	public static Item scribe;
 	public static Block blank_rune_block;
 	public static Block air_rune_block;
 	public static Block earth_rune_block;

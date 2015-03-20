@@ -10,7 +10,7 @@ public class ItemMortar extends Item
         super();
         setMaxDamage(256);
         setMaxStackSize(1);
-        setCreativeTab(Symbology.runesTab);
-        setUnlocalizedName("runemortar");
+        setCreativeTab(Symbology.symbologyTab);
+        setUnlocalizedName("mortar");
     }
 }
