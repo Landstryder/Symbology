@@ -7,6 +7,7 @@ import com.teamrune.symbology.items.ItemRune;
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
 import com.teamrune.symbology.registers.RegisterHelper;
+import com.teamrune.symbology.enums.EnumRuneTypes;
 
 public class ClientProxySymbology extends CommonProxySymbology {
 
@@ -14,7 +15,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 	}
 
 	public void registerRenders() {
-		for (ItemRune.EnumRuneTypes types : ItemRune.EnumRuneTypes.values()) {
+		for (EnumRuneTypes types : EnumRuneTypes.values()) {
 			String itemModelName = types.getName();
 			int metadata = types.getMetadata();
 			

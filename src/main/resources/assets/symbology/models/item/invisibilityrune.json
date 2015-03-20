@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "symbology:items/runes/invisibilityrune"
+        "layer0": "symbology:items/runes/invisibilityrune2"
     },
     "display": {
         "thirdperson": {
