@@ -16,7 +16,7 @@ import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
 import com.teamrune.symbology.registers.RegisterBlocks;
 import com.teamrune.symbology.registers.RegisterItems;
-import com.teamrune.symbology.world.gen.WorldGenerator;
+import com.teamrune.symbology.world.gen.WorldGeneratorSymbology;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class Symbology {
@@ -54,7 +54,7 @@ public class Symbology {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		GameRegistry.registerWorldGenerator(new WorldGenerator(), 10);
+		GameRegistry.registerWorldGenerator(new WorldGeneratorSymbology(), 10);
 		
 		//proxy.registerLoaders();
 
