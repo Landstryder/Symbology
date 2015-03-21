@@ -116,13 +116,10 @@ VIII) Multiblock Structures
 
 IX) World Gen
 	a) Plants
-		1) Some red flower
-		2) Some blue flower
-		3) Some plant to get green
-		4) Death Cap Mushroom
-		5) Ash Tree
-		6) Great Oak (2x2)
-		7) Thorn bush
+		1) Death Cap Mushroom
+		2) Ash Tree
+		3) Great Oak (2x2)
+		4) Thorn bush
 	b) Minerals
 		1) Slate
 		2) Chalk
