@@ -37,6 +37,7 @@ public class WorldGenerator implements IWorldGenerator {
 			int zCoord = chunkX + random.nextInt(16);
 			System.out.println("X:" + xCoord + " Y:" + yCoord + " Z:" + zCoord);
 			
+			
 			(new WorldGenMinable(Symbology.slate_block.getDefaultState(), 25)).generate(world, random, new BlockPos(xCoord, yCoord, zCoord));
 		}
 	}
