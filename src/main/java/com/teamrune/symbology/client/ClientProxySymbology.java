@@ -2,16 +2,20 @@ package com.teamrune.symbology.client;
 
 import net.minecraft.client.resources.model.ModelBakery;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
 
 import com.teamrune.symbology.Symbology;
-import com.teamrune.symbology.items.ItemRune;
+import com.teamrune.symbology.enums.EnumRuneTypes;
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
 import com.teamrune.symbology.registers.RegisterHelper;
-import com.teamrune.symbology.enums.EnumRuneBlocks;
-import com.teamrune.symbology.enums.EnumRuneTypes;
+import com.teamrune.symbology.util.CustomModelLoader;
 
 public class ClientProxySymbology extends CommonProxySymbology {
+	
+	public void registerLoaders() {
+		//ModelLoaderRegistry.registerLoader(new CustomModelLoader());
+	}
 
 	public void registerSounds() {
 	}

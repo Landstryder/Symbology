@@ -1,6 +1,10 @@
 package com.teamrune.symbology.proxies;
 
 public class CommonProxySymbology {
+	
+	public void registerLoaders()
+	{
+	}
 
     public void registerSounds()
     {
