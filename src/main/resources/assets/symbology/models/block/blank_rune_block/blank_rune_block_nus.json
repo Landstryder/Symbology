@@ -1,0 +1,11 @@
+{
+    "parent": "symbology:block/blank_rune_block/blank_rune_block",
+    "textures": {
+        "up": "symbology:blocks/blank_rune_block",
+				"down": "symbology:blocks/blank_rune_block_tb",
+				"north": "symbology:blocks/blank_rune_block",
+				"south": "symbology:blocks/blank_rune_block",
+				"east": "symbology:blocks/blank_rune_block_trl",
+				"west": "symbology:blocks/blank_rune_block_trl"
+    }
+}

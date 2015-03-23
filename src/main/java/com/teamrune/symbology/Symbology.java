@@ -54,7 +54,7 @@ public class Symbology {
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		
-		GameRegistry.registerWorldGenerator(new WorldGeneratorSymbology(), 10);
+		GameRegistry.registerWorldGenerator(new WorldGeneratorSymbology(), 0);
 		
 		//proxy.registerLoaders();
 

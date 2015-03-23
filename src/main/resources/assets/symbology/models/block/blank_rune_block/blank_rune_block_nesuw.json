@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "symbology:blocks/blank_rune_block/blank_rune_block"
-    }
-}
