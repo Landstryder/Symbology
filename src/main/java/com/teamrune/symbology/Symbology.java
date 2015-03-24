@@ -1,5 +1,6 @@
 package com.teamrune.symbology;
 
+import com.teamrune.symbology.recipes.Recipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -29,6 +30,7 @@ public class Symbology {
 	public static Item rune;
 	public static Item mortar;
 	public static Item scribe;
+    public static Item rune_matrix;
 	public static Block blank_rune_block;
 	public static Block air_rune_block;
 	public static Block earth_rune_block;
@@ -69,7 +71,8 @@ public class Symbology {
 	public void load(FMLInitializationEvent event) {
 		proxy.registerSounds();
 		proxy.registerRenders();
-	}
+        Recipes.init();
+    }
 
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {

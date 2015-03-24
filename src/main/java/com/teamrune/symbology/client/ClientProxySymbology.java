@@ -30,6 +30,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 		
 		RegisterHelper.registerItemRenders(Symbology.mortar, 0, "mortar");
 		RegisterHelper.registerItemRenders(Symbology.scribe, 0, "scribe");
+        RegisterHelper.registerItemRenders(Symbology.rune_matrix, 0, "rune_matrix");
 		
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.blank_rune_block), 0, "blank_rune_block");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.air_rune_block), 0, "air_rune_block");

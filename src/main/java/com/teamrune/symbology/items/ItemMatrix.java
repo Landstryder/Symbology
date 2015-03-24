@@ -10,7 +10,7 @@ public class ItemMatrix extends Item
             super();
             setMaxDamage(0);
             setMaxStackSize(1);
-            setCreativeTab(Symbology.runesTab);
-            setUnlocalizedName("runematrix");
+            setCreativeTab(Symbology.symbologyTab);
+            setUnlocalizedName("rune_matrix");
         }
 }
