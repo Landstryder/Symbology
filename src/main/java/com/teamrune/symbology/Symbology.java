@@ -1,6 +1,6 @@
 package com.teamrune.symbology;
 
-import com.teamrune.symbology.recipes.Recipes;
+import com.teamrune.symbology.registers.recipes.CraftingRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -71,7 +71,7 @@ public class Symbology {
 	public void load(FMLInitializationEvent event) {
 		proxy.registerSounds();
 		proxy.registerRenders();
-        Recipes.init();
+        CraftingRecipes.init();
     }
 
 	@EventHandler
