@@ -38,6 +38,7 @@ public class Symbology {
 	public static Block magic_rune_block;
 	public static Block crafting_rune_block;
 	public static Block slate_block;
+	public static Block ash_log;
 	
 	public static CreativeTabs runesTab = new CreativeTabs("SymbologyRunes") {
 		public Item getTabIconItem() {
@@ -56,7 +57,7 @@ public class Symbology {
 		
 		GameRegistry.registerWorldGenerator(new WorldGeneratorSymbology(), 0);
 		
-		//proxy.registerLoaders();
+		proxy.registerLoaders();
 
 		RegisterBlocks.blockRegisters();
 		RegisterItems.itemRegisters();

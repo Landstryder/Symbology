@@ -1,30 +1,21 @@
 package com.teamrune.symbology.blocks;
 
-import java.util.List;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraftforge.common.property.ExtendedBlockState;
+import net.minecraftforge.common.property.IExtendedBlockState;
+import net.minecraftforge.common.property.IUnlistedProperty;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import com.teamrune.symbology.Symbology;
-import com.teamrune.symbology.enums.EnumRuneBlocks;
 
 public class BlockBlankRuneBlock extends Block {
 
@@ -95,6 +86,28 @@ public class BlockBlankRuneBlock extends Block {
 	public int getMetaFromState(IBlockState state) {
 		return 0;
 	}
+	
+	/*public static final IUnlistedProperty<Integer> JAI = new IUnlistedProperty<Integer>() {
+		@Override
+		public String getName() {
+			return "justAnotherInteger";
+		}
+		
+		@Override
+		public boolean isValid(Integer value) {
+			return true;
+		}
+		
+		@Override
+		public Class<Integer> getType() {
+			return Integer.class;
+		}
+		
+		@Override
+		public String valueToString(Integer value){
+			return value.toString();
+		}
+	};*/
 
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn,
 			BlockPos pos) {
@@ -140,10 +153,20 @@ public class BlockBlankRuneBlock extends Block {
 		}
 	}
 
+	@Override
 	protected BlockState createBlockState() {
+		//return new ExtendedBlockState(this, new IProperty[]{LISTED_PROPERTIES}, new IUnlistedProperty[]{JAI});
 		return new BlockState(this, new IProperty[] { NORTH, EAST, SOUTH, WEST,
 				UP, DOWN/*, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST, UPNORTH,
 				UPSOUTH, UPEAST, UPWEST, /*DOWNNORTH/*,*/ /*DOWNSOUTH/*, DOWNEAST/*,
 				DOWNWEST*/ });
 	}
+	
+	/*@Override
+	public IBlockState getExtendedState(IBlockState state, IBlockAccess world, BlockPos pos) {
+		if (state instanceof IExtendedBlockState) {
+			return ((IExtendedBlockState)state).withProperty(JAI, pos.getY());
+		}
+		return state;
+	}*/
 }

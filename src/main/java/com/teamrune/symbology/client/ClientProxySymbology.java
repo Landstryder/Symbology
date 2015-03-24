@@ -5,11 +5,11 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoaderRegistry;
 
 import com.teamrune.symbology.Symbology;
+import com.teamrune.symbology.client.model.CustomModelLoader;
 import com.teamrune.symbology.enums.EnumRuneTypes;
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
 import com.teamrune.symbology.registers.RegisterHelper;
-import com.teamrune.symbology.util.CustomModelLoader;
 
 public class ClientProxySymbology extends CommonProxySymbology {
 	
@@ -40,6 +40,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.target_rune_block), 0, "target_rune_block");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.crafting_rune_block), 0, "crafting_rune_block");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.slate_block), 0, "slate_block");
+		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_log), 0, "ash_log");
 	}
 
 	public void addVariants() {

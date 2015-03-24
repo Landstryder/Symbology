@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "symbology:ash_log" },
+        "axis=z":   { "model": "symbology:ash_log_side" },
+        "axis=x":   { "model": "symbology:ash_log_side", "y": 90 },
+        "axis=none": { "model": "symbology:ash_bark" }
+    }
+}

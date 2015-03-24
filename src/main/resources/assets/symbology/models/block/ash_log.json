@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "symbology:blocks/ash_log_top_bottom",
+        "side": "symbology:blocks/ash_log_bark"
+    }
+}

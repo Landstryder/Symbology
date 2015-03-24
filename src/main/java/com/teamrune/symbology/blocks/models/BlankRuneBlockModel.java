@@ -15,6 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import java.util.Arrays;
 import java.util.Collection;
 
+import com.teamrune.symbology.client.model.BakedBlankRuneBlockModel;
 import com.teamrune.symbology.reference.Reference;
 
 @SideOnly(Side.CLIENT)

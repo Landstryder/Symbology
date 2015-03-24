@@ -1,4 +1,4 @@
-package com.teamrune.symbology.util;
+package com.teamrune.symbology.client.model;
 
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
@@ -15,7 +15,7 @@ public class CustomModelLoader implements ICustomModelLoader {
 	
 	private IResourceManager resourceManager;
 	
-	String path = "models/block/" + Reference.MOD_ID;
+	String path = "models/block/builtin";
 	
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
@@ -33,7 +33,7 @@ public class CustomModelLoader implements ICustomModelLoader {
 		if (r.equals(Reference.MOD_ID)) {
 			return new BlankRuneBlockModel(resourceManager);
 		}
-		throw new RuntimeException("A custom model '" + r + "' is not defined.");
+		throw new RuntimeException("A builtin model '" + r + "' is not defined.");
 	}
 
 }
