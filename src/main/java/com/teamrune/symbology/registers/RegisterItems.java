@@ -19,6 +19,7 @@ public class RegisterItems {
         RegisterHelper.registerItem(Symbology.rune);
         RegisterHelper.registerItem(Symbology.mortar);
         RegisterHelper.registerItem(Symbology.scribe);
+        RegisterHelper.registerItem(Symbology.rune_matrix);
     }
 
 }

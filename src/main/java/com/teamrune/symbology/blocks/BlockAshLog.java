@@ -100,7 +100,6 @@ public class BlockAshLog extends Block
     
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state)
     {
-    	System.out.println(state.getProperties().toString());
         byte b0 = 4;
         int i = b0 + 1;
 
@@ -124,10 +123,7 @@ public class BlockAshLog extends Block
     @Override
     public IBlockState onBlockPlaced(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer)
     {
-    	System.out.println(facing.toString());
     	EnumAxis face = BlockAshLog.EnumAxis.fromFacingAxis(facing.getAxis());
-    	System.out.println(face);
-    	System.out.println(super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(LOG_AXIS, face).toString());
         return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(LOG_AXIS, face);
     }
 
@@ -187,7 +183,6 @@ public class BlockAshLog extends Block
             {
                 try
                 {
-                	System.out.println("Ordinal 1");
                     AXIS_LOOKUP[BlockAshLog.EnumAxis.X.ordinal()] = 1;
                 }
                 catch (NoSuchFieldError var3)
@@ -197,7 +192,6 @@ public class BlockAshLog extends Block
 
                 try
                 {
-                	System.out.println("Ordinal 2");
                     AXIS_LOOKUP[BlockAshLog.EnumAxis.Y.ordinal()] = 2;
                 }
                 catch (NoSuchFieldError var2)
@@ -207,7 +201,6 @@ public class BlockAshLog extends Block
 
                 try
                 {
-                	System.out.println("Ordinal 3");
                     AXIS_LOOKUP[BlockAshLog.EnumAxis.Z.ordinal()] = 3;
                 }
                 catch (NoSuchFieldError var1)

@@ -2,7 +2,9 @@ package com.teamrune.symbology.registers;
 
 import com.teamrune.symbology.Symbology;
 import com.teamrune.symbology.blocks.BlockAirRuneBlock;
+import com.teamrune.symbology.blocks.BlockAshLeafBlock;
 import com.teamrune.symbology.blocks.BlockAshLog;
+import com.teamrune.symbology.blocks.BlockAshSapling;
 import com.teamrune.symbology.blocks.BlockBlankRuneBlock;
 import com.teamrune.symbology.blocks.BlockCraftingRuneBlock;
 import com.teamrune.symbology.blocks.BlockEarthRuneBlock;
@@ -26,6 +28,8 @@ public class RegisterBlocks {
     	Symbology.crafting_rune_block = new BlockCraftingRuneBlock();
     	Symbology.slate_block = new BlockSlateBlock();
     	Symbology.ash_log = new BlockAshLog();
+    	Symbology.ash_leaves = new BlockAshLeafBlock();
+    	Symbology.ash_sapling = new BlockAshSapling();
         
         RegisterHelper.registerBlock(Symbology.blank_rune_block);
         RegisterHelper.registerBlock(Symbology.air_rune_block);
@@ -37,6 +41,8 @@ public class RegisterBlocks {
         RegisterHelper.registerBlock(Symbology.crafting_rune_block);
         RegisterHelper.registerBlock(Symbology.slate_block);
         RegisterHelper.registerBlock(Symbology.ash_log);
+        RegisterHelper.registerBlock(Symbology.ash_leaves);
+        RegisterHelper.registerBlock(Symbology.ash_sapling);
     }
 	
 }
