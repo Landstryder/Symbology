@@ -12,6 +12,7 @@ import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.common.IPlantable;
 
 public class WorldGenSymbologyTrees extends WorldGenAbstractTree
 {
@@ -27,7 +28,7 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
 
     public WorldGenSymbologyTrees(boolean p_i2027_1_)
     {
-        this(p_i2027_1_, 4, 0, 0, false);
+        this(p_i2027_1_, 6, 0, 0, false);
     }
 
     public WorldGenSymbologyTrees(boolean p_i2028_1_, int p_i2028_2_, int p_i2028_3_, int p_i2028_4_, boolean p_i2028_5_)
@@ -90,7 +91,7 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
             {
                 BlockPos down = p_180709_3_.down();
                 Block block1 = worldIn.getBlockState(down).getBlock();
-                boolean isSoil = block1.canSustainPlant(worldIn, down, net.minecraft.util.EnumFacing.UP, (net.minecraft.block.BlockSapling)Blocks.sapling);
+                boolean isSoil = block1.canSustainPlant(worldIn, down, net.minecraft.util.EnumFacing.UP, (IPlantable) Symbology.ash_sapling);
 
                 if (isSoil && p_180709_3_.getY() < 256 - i - 1)
                 {

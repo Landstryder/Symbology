@@ -10,6 +10,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -68,7 +69,7 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(meta > 0));
+        return this.getDefaultState().withProperty(DECAYABLE, true).withProperty(CHECK_DECAY, Boolean.valueOf(meta > 0));
     }
     
     public int getMetaFromState(IBlockState state)
@@ -128,6 +129,7 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     {
         if (!worldIn.isRemote)
         {
+        	setGraphicsLevel(Minecraft.getMinecraft().isFancyGraphicsEnabled(), pos);
             if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue() && ((Boolean)state.getValue(DECAYABLE)).booleanValue())
             {
                 byte b0 = 4;
@@ -280,11 +282,14 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     }
     
     @SideOnly(Side.CLIENT)
-    public void setGraphicsLevel(boolean fancy)
+    public void setGraphicsLevel(boolean fancy, BlockPos pos)
     {
-        this.isTransparent = fancy;
-        this.fancyGraphics = fancy;
-        this.iconIndex = fancy ? 0 : 1;
+    	if (fancy != isTransparent) {
+    		this.isTransparent = fancy;
+    		this.fancyGraphics = fancy;
+    		this.iconIndex = fancy ? 0 : 1;
+    		Minecraft.getMinecraft().renderGlobal.markBlockForUpdate(pos);
+    	}
     }
 
     public boolean isVisuallyOpaque()
