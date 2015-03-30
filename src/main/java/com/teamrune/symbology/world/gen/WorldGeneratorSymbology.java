@@ -1,6 +1,6 @@
 package com.teamrune.symbology.world.gen;
 
-import static net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable.EventType.CUSTOM;
+import static net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType.TREE;
 
 import java.util.Random;
 
@@ -9,6 +9,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
@@ -56,7 +57,7 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 			} else {
 				i--;
 			}
-		}
+		} 
 	}
 
 	private void generateNether(World world, Random random, int chunkX, int chunkZ) {

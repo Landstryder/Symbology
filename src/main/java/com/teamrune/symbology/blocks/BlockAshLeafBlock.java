@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockLeavesBase;
+import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -37,14 +39,18 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     
     public BlockAshLeafBlock()
     {
-    	super(Material.leaves, false);
+        super(Material.leaves, false);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("ash_leaves");
         this.setHardness(0.2F);
         this.setLightOpacity(1);
         this.setStepSound(soundTypeGrass);
         this.setTickRandomly(true);
-        this.setDefaultState(this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(false)));
+        this.setDefaultState(this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(CHECK_DECAY, Boolean.valueOf(true)));
+    }
+    
+    public IBlockState onBlockPlaced() {
+		return null;
     }
     
     @SideOnly(Side.CLIENT)
@@ -69,7 +75,7 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(DECAYABLE, true).withProperty(CHECK_DECAY, Boolean.valueOf(meta > 0));
+        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0).withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
     }
     
     public int getMetaFromState(IBlockState state)
@@ -79,12 +85,12 @@ public class BlockAshLeafBlock extends BlockLeavesBase implements net.minecraftf
     	
         if (!((Boolean)state.getValue(DECAYABLE)).booleanValue())
         {
-            i = 0;
+            i |= 4;
         }
 
         if (((Boolean)state.getValue(CHECK_DECAY)).booleanValue())
         {
-            i = 1;
+            i |= 8;
         }
         
         

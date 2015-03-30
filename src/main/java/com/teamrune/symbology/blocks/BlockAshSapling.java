@@ -160,7 +160,7 @@ public class BlockAshSapling extends BlockBush implements IGrowable
      */
     public IBlockState getStateFromMeta(int meta)
     {
-        return this.getDefaultState().withProperty(STAGE, Integer.valueOf(meta));
+        return this.getDefaultState().withProperty(STAGE, Integer.valueOf((meta & 8) >> 3));
     }
 
     /**
@@ -170,7 +170,7 @@ public class BlockAshSapling extends BlockBush implements IGrowable
     {
         byte b0 = 0;
         int i = b0;
-        i = ((Integer)state.getValue(STAGE)).intValue();
+        i |= ((Integer)state.getValue(STAGE)).intValue() << 3;
         return i;
     }
 
