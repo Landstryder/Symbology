@@ -122,11 +122,10 @@ IX) World Gen
 		4) Thorn bush
 	b) Minerals
 		1) Slate
-		2) Chalk
-		3) Silver
-		4) Ruby - gemstone
-		5) Topaz - gemstone
-		6) Aventurine - gemstone
+		2) Silver
+		3) Ruby - gemstone
+		4) Topaz - gemstone
+		5) Aventurine - gemstone
 	
 	c) Dungeons (see above)
 
