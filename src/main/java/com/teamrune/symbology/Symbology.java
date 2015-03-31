@@ -44,6 +44,9 @@ public class Symbology {
 	public static Block magic_rune_block;
 	public static Block crafting_rune_block;
 	public static Block slate_block;
+	public static Block ruby_ore;
+	public static Block topaz_ore;
+	public static Block aventurine_ore;
 	public static Block ash_log;
 	public static Block ash_leaves;
 	public static Block ash_sapling;

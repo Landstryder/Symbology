@@ -1,7 +1,24 @@
 package com.teamrune.symbology.registers;
 
 import com.teamrune.symbology.Symbology;
+
 import com.teamrune.symbology.blocks.*;
+import com.teamrune.symbology.blocks.BlockAirRuneBlock;
+import com.teamrune.symbology.blocks.BlockAshLeafBlock;
+import com.teamrune.symbology.blocks.BlockAshLog;
+import com.teamrune.symbology.blocks.BlockAshSapling;
+import com.teamrune.symbology.blocks.BlockAventurineOre;
+import com.teamrune.symbology.blocks.BlockBlankRuneBlock;
+import com.teamrune.symbology.blocks.BlockCraftingRuneBlock;
+import com.teamrune.symbology.blocks.BlockEarthRuneBlock;
+import com.teamrune.symbology.blocks.BlockFireRuneBlock;
+import com.teamrune.symbology.blocks.BlockMagicRuneBlock;
+import com.teamrune.symbology.blocks.BlockRubyOre;
+import com.teamrune.symbology.blocks.BlockSlateBlock;
+import com.teamrune.symbology.blocks.BlockTargetRuneBlock;
+import com.teamrune.symbology.blocks.BlockTopazOre;
+import com.teamrune.symbology.blocks.BlockWaterRuneBlock;
+
 
 public class RegisterBlocks {
 
@@ -16,6 +33,9 @@ public class RegisterBlocks {
     	Symbology.target_rune_block = new BlockTargetRuneBlock();
     	Symbology.crafting_rune_block = new BlockCraftingRuneBlock();
     	Symbology.slate_block = new BlockSlateBlock();
+    	Symbology.topaz_ore = new BlockTopazOre();
+    	Symbology.ruby_ore = new BlockRubyOre();
+    	Symbology.aventurine_ore = new BlockAventurineOre();
     	Symbology.ash_log = new BlockAshLog();
     	Symbology.ash_leaves = new BlockAshLeafBlock();
     	Symbology.ash_sapling = new BlockAshSapling();
@@ -30,6 +50,9 @@ public class RegisterBlocks {
         RegisterHelper.registerBlock(Symbology.target_rune_block);
         RegisterHelper.registerBlock(Symbology.crafting_rune_block);
         RegisterHelper.registerBlock(Symbology.slate_block);
+        RegisterHelper.registerBlock(Symbology.topaz_ore);
+        RegisterHelper.registerBlock(Symbology.ruby_ore);
+        RegisterHelper.registerBlock(Symbology.aventurine_ore);
         RegisterHelper.registerBlock(Symbology.ash_log);
         RegisterHelper.registerBlock(Symbology.ash_leaves);
         RegisterHelper.registerBlock(Symbology.ash_sapling);
