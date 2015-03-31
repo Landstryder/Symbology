@@ -27,6 +27,8 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 	public World currentWorld;
 	
 	public WorldGenerator slateGen;
+
+    public WorldGenerator silverGen;
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -48,8 +50,21 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 
 	private void generateSurfaceWorld(World world, Random random, int chunkX, int chunkZ) {
 
+        silverGen = new WorldGenMinable(Symbology.silver_ore.getDefaultState(), 2 + random.nextInt(8));
 		slateGen = new WorldGenMinable(Symbology.slate_block.getDefaultState(), 33);
-		
+
+        for(int i = 0; i < 2; i++) {
+            int xCoord = chunkX * 16 + random.nextInt(16);
+            int yCoord = 10 + random.nextInt(20);
+            int zCoord = chunkZ * 16 + random.nextInt(16);
+            BlockPos pos = new BlockPos(xCoord, yCoord, zCoord);
+            if (world.getBlockState(pos).getBlock() == Blocks.stone) {
+                silverGen.generate(world, random, pos);
+            } else {
+                i--;
+            }
+        }
+
 		for(int i = 0; i < 5; i++) {
 			int xCoord = chunkX * 16 + random.nextInt(16);
 			int yCoord = random.nextInt(80);
