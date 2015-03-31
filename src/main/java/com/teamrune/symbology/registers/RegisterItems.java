@@ -15,11 +15,13 @@ public class RegisterItems {
     	Symbology.mortar = new ItemMortar();
     	Symbology.scribe = new ItemScribe();
         Symbology.rune_matrix = new ItemMatrix();
+        Symbology.silver_ingot = new ItemSilverIngot();
         
         RegisterHelper.registerItem(Symbology.rune);
         RegisterHelper.registerItem(Symbology.mortar);
         RegisterHelper.registerItem(Symbology.scribe);
         RegisterHelper.registerItem(Symbology.rune_matrix);
+        RegisterHelper.registerItem(Symbology.silver_ingot);
     }
 
 }

@@ -31,6 +31,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 		RegisterHelper.registerItemRenders(Symbology.mortar, 0, "mortar");
 		RegisterHelper.registerItemRenders(Symbology.scribe, 0, "scribe");
         RegisterHelper.registerItemRenders(Symbology.rune_matrix, 0, "rune_matrix");
+        RegisterHelper.registerItemRenders(Symbology.silver_ingot, 0, "silver_ingot");
 		
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.blank_rune_block), 0, "blank_rune_block");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.air_rune_block), 0, "air_rune_block");
@@ -44,6 +45,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_log), 0, "ash_log");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_leaves), 0, "ash_leaves");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_sapling), 0, "ash_sapling");
+        RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.silver_ore), 0, "silver_ore");
 	}
 
 	public void addVariants() {

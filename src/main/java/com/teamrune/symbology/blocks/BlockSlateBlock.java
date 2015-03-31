@@ -30,24 +30,24 @@ public class BlockSlateBlock extends Block
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("slate_block");
     }
-    
+
     @SideOnly(Side.CLIENT)
     public EnumWorldBlockLayer getBlockLayer() {
-    	return EnumWorldBlockLayer.SOLID;
+        return EnumWorldBlockLayer.SOLID;
     }
-    
+
     @Override
     public boolean isOpaqueCube() {
-    	return true;
+        return true;
     }
-    
+
     @Override
     public boolean isFullCube() {
-    	return true;
+        return true;
     }
-    
+
     @Override
     public int getRenderType() {
-    	return 3;
+        return 3;
     }
 }

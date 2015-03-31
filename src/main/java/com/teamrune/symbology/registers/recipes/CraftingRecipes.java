@@ -19,6 +19,6 @@ public class CraftingRecipes
         GameRegistry.addRecipe(new ItemStack(Symbology.earth_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 1), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.magic_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.earth_rune_block), "gmg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'm', new ItemStack(Symbology.rune_matrix), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
-
+        GameRegistry.addRecipe(new ItemStack(Symbology.target_rune_block), "gsg", "sbs", "gsg", 'g', new ItemStack(Items.gold_ingot), 's', new ItemStack(Symbology.silver_ingot), 'b', new ItemStack(Symbology.slate_block));
     }
 }

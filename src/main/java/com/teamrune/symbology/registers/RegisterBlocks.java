@@ -1,18 +1,7 @@
 package com.teamrune.symbology.registers;
 
 import com.teamrune.symbology.Symbology;
-import com.teamrune.symbology.blocks.BlockAirRuneBlock;
-import com.teamrune.symbology.blocks.BlockAshLeafBlock;
-import com.teamrune.symbology.blocks.BlockAshLog;
-import com.teamrune.symbology.blocks.BlockAshSapling;
-import com.teamrune.symbology.blocks.BlockBlankRuneBlock;
-import com.teamrune.symbology.blocks.BlockCraftingRuneBlock;
-import com.teamrune.symbology.blocks.BlockEarthRuneBlock;
-import com.teamrune.symbology.blocks.BlockFireRuneBlock;
-import com.teamrune.symbology.blocks.BlockMagicRuneBlock;
-import com.teamrune.symbology.blocks.BlockSlateBlock;
-import com.teamrune.symbology.blocks.BlockTargetRuneBlock;
-import com.teamrune.symbology.blocks.BlockWaterRuneBlock;
+import com.teamrune.symbology.blocks.*;
 
 public class RegisterBlocks {
 
@@ -30,6 +19,7 @@ public class RegisterBlocks {
     	Symbology.ash_log = new BlockAshLog();
     	Symbology.ash_leaves = new BlockAshLeafBlock();
     	Symbology.ash_sapling = new BlockAshSapling();
+        Symbology.silver_ore = new BlockSilverOre();
         
         RegisterHelper.registerBlock(Symbology.blank_rune_block);
         RegisterHelper.registerBlock(Symbology.air_rune_block);
@@ -43,6 +33,8 @@ public class RegisterBlocks {
         RegisterHelper.registerBlock(Symbology.ash_log);
         RegisterHelper.registerBlock(Symbology.ash_leaves);
         RegisterHelper.registerBlock(Symbology.ash_sapling);
+        RegisterHelper.registerBlock(Symbology.silver_ore);
+
     }
 	
 }

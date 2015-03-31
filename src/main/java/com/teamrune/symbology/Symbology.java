@@ -34,6 +34,7 @@ public class Symbology {
 	public static Item mortar;
 	public static Item scribe;
     public static Item rune_matrix;
+    public static Item silver_ingot ;
 	public static Block blank_rune_block;
 	public static Block air_rune_block;
 	public static Block earth_rune_block;
@@ -46,6 +47,7 @@ public class Symbology {
 	public static Block ash_log;
 	public static Block ash_leaves;
 	public static Block ash_sapling;
+    public static Block silver_ore;
 	
 	public static CreativeTabs runesTab = new CreativeTabs("SymbologyRunes") {
 		public Item getTabIconItem() {
