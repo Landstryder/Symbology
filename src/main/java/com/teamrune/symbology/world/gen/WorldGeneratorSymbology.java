@@ -27,8 +27,10 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 	public World currentWorld;
 	
 	public WorldGenerator slateGen;
-
     public WorldGenerator silverGen;
+    public WorldGenerator topazGen;
+    public WorldGenerator rubyGen;
+    public WorldGenerator aventurineGen;
 	
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
@@ -51,31 +53,17 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 	private void generateSurfaceWorld(World world, Random random, int chunkX, int chunkZ) {
 
         silverGen = new WorldGenMinable(Symbology.silver_ore.getDefaultState(), 2 + random.nextInt(8));
+        topazGen = new WorldGenMinable(Symbology.topaz_ore.getDefaultState(), 5);
+        rubyGen = new WorldGenMinable(Symbology.ruby_ore.getDefaultState(), 5);
+        aventurineGen = new WorldGenMinable(Symbology.aventurine_ore.getDefaultState(), 5);
 		slateGen = new WorldGenMinable(Symbology.slate_block.getDefaultState(), 33);
-
-        for(int i = 0; i < 2; i++) {
-            int xCoord = chunkX * 16 + random.nextInt(16);
-            int yCoord = 10 + random.nextInt(20);
-            int zCoord = chunkZ * 16 + random.nextInt(16);
-            BlockPos pos = new BlockPos(xCoord, yCoord, zCoord);
-            if (world.getBlockState(pos).getBlock() == Blocks.stone) {
-                silverGen.generate(world, random, pos);
-            } else {
-                i--;
-            }
-        }
-
-		for(int i = 0; i < 5; i++) {
-			int xCoord = chunkX * 16 + random.nextInt(16);
-			int yCoord = random.nextInt(80);
-			int zCoord = chunkZ * 16 + random.nextInt(16);
-			BlockPos pos = new BlockPos(xCoord, yCoord, zCoord);
-			if (world.getBlockState(pos).getBlock() == Blocks.stone) {
-				slateGen.generate(world, random, pos);
-			} else {
-				i--;
-			}
-		}
+		
+		//generateOres(int attempts, int minY, int randY, int randX, int randZ, int chunkX, int chunkZ, WorldGenerator gen, World world, Random random)
+		this.generateOres(5, 0, 80, 16, 16, chunkX, chunkZ, slateGen, world, random);
+		this.generateOres(2, 10, 20, 16, 16, chunkX, chunkZ, silverGen, world, random);
+		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, topazGen, world, random);
+		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, rubyGen, world, random);
+		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, aventurineGen, world, random);
 		
 		for(int h = 0; h < 2; h++) {
 			int xCoord = chunkX * 16 + random.nextInt(16);
@@ -125,6 +113,20 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 
 	private void generateNether(World world, Random random, int chunkX, int chunkZ) {
 		
+	}
+	
+	private void generateOres(int attempts, int minY, int randY, int randX, int randZ, int chunkX, int chunkZ, WorldGenerator gen, World world, Random random) {
+		for(int i = 0; i < attempts; i++) {
+            int xCoord = chunkX * 16 + random.nextInt(randX);
+            int yCoord = minY + random.nextInt(randY);
+            int zCoord = chunkZ * 16 + random.nextInt(randZ);
+            BlockPos pos = new BlockPos(xCoord, yCoord, zCoord);
+            if ((world.getBlockState(pos).getBlock() == Blocks.stone) || (world.getBlockState(pos).getBlock() == Symbology.slate_block)) {
+                gen.generate(world, random, pos);
+            } else {
+                i--;
+            }
+        }
 	}
 	
 }
