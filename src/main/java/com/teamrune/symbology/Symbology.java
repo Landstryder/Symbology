@@ -35,6 +35,15 @@ public class Symbology {
 	public static Item scribe;
     public static Item rune_matrix;
     public static Item silver_ingot ;
+    public static Item silver_dust;
+    public static Item gold_dust;
+    public static Item charcoal_dust;
+    public static Item aventurine_gem;
+    public static Item ruby_gem;
+    public static Item topaz_gem ;
+    public static Item aventurine_dust;
+    public static Item ruby_dust;
+    public static Item topaz_dust;
 	public static Block blank_rune_block;
 	public static Block air_rune_block;
 	public static Block earth_rune_block;
