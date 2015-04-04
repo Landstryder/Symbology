@@ -61,9 +61,9 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 		//generateOres(int attempts, int minY, int randY, int randX, int randZ, int chunkX, int chunkZ, WorldGenerator gen, World world, Random random)
 		this.generateOres(5, 0, 80, 16, 16, chunkX, chunkZ, slateGen, world, random);
 		this.generateOres(2, 10, 20, 16, 16, chunkX, chunkZ, silverGen, world, random);
-		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, topazGen, world, random);
-		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, rubyGen, world, random);
-		this.generateOres(4, 10, 30, 16, 16, chunkX, chunkZ, aventurineGen, world, random);
+		this.generateOres(2, 20, 30, 16, 16, chunkX, chunkZ, topazGen, world, random);
+		this.generateOres(2, 30, 30, 16, 16, chunkX, chunkZ, rubyGen, world, random);
+		this.generateOres(3, 40, 30, 16, 16, chunkX, chunkZ, aventurineGen, world, random);
 		
 		for(int h = 0; h < 2; h++) {
 			int xCoord = chunkX * 16 + random.nextInt(16);
