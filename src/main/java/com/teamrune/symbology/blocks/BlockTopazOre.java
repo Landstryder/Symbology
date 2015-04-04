@@ -1,6 +1,7 @@
 package com.teamrune.symbology.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -29,6 +30,13 @@ public class BlockTopazOre extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("topaz_ore");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
+    }
+    
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+    	return Symbology.topaz_gem;
     }
     
     @SideOnly(Side.CLIENT)

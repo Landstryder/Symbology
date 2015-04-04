@@ -1,6 +1,7 @@
 package com.teamrune.symbology.blocks;
 
 import java.util.List;
+import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -10,6 +11,7 @@ import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
@@ -29,6 +31,13 @@ public class BlockRubyOre extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("ruby_ore");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
+    }
+    
+    public Item getItemDropped(IBlockState state, Random rand, int fortune)
+    {
+    	return Symbology.ruby_gem;
     }
     
     @SideOnly(Side.CLIENT)
