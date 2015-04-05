@@ -29,6 +29,8 @@ public class BlockWaterRuneBlock extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("water_rune_block");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(4.0F);
     }
     
     @SideOnly(Side.CLIENT)

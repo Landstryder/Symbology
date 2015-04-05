@@ -42,6 +42,8 @@ public class BlockBlankRuneBlock extends Block {
 		super(Material.rock);
 		setCreativeTab(Symbology.symbologyTab);
 		setUnlocalizedName("blank_rune_block");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
 		setDefaultState(this.blockState.getBaseState()
 				.withProperty(DOWN, Boolean.valueOf(false))
 				.withProperty(UP, Boolean.valueOf(false))

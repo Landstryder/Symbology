@@ -11,9 +11,11 @@ public class BlockSilverOre extends Block
 {
     public BlockSilverOre()
     {
-    super(Material.rock);
-    setCreativeTab(Symbology.symbologyTab);
-    setUnlocalizedName("silver_ore");
+        super(Material.rock);
+        setCreativeTab(Symbology.symbologyTab);
+        setUnlocalizedName("silver_ore");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(4.0F);
     }
 
     @SideOnly(Side.CLIENT)

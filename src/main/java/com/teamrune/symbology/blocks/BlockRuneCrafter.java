@@ -12,5 +12,7 @@ public class BlockRuneCrafter extends Block
         super(Material.rock);
         setCreativeTab(Symbology.runesTab);
         setUnlocalizedName("runeenchanter");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
     }
 }

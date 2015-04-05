@@ -31,7 +31,7 @@ public class BlockAventurineOre extends Block
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("aventurine_ore");
         setHarvestLevel("pickaxe", 2);
-        setHardness(10.0F);
+        setHardness(4.0F);
     }
     
     public Item getItemDropped(IBlockState state, Random rand, int fortune)

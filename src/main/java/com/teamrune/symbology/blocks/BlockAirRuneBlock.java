@@ -29,6 +29,8 @@ public class BlockAirRuneBlock extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("air_rune_block");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
     }
     
     @SideOnly(Side.CLIENT)

@@ -15,7 +15,7 @@ public class BlockAshPlank extends Block
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("ash_plank");
         setHarvestLevel("axe", 0);
-        setHardness(3.0F);
+        setHardness(2.0F);
     }
 
     @SideOnly(Side.CLIENT)

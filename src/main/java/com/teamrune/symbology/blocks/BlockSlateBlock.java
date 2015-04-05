@@ -15,6 +15,8 @@ public class BlockSlateBlock extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("slate_block");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(2.0F);
     }
 
     @SideOnly(Side.CLIENT)

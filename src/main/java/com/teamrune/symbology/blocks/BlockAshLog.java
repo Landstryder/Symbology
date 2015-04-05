@@ -35,6 +35,8 @@ public class BlockAshLog extends Block
     	super(Material.wood);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("ash_log");
+        setHarvestLevel("axe", 0);
+        setHardness(3.0F);
         setDefaultState(this.blockState.getBaseState().withProperty(LOG_AXIS, BlockAshLog.EnumAxis.NONE));
     }
     

@@ -29,6 +29,8 @@ public class BlockEarthRuneBlock extends Block
         super(Material.rock);
         setCreativeTab(Symbology.symbologyTab);
         setUnlocalizedName("earth_rune_block");
+        setHarvestLevel("pickaxe", 2);
+        setHardness(10.0F);
     }
     
     @SideOnly(Side.CLIENT)
