@@ -13,7 +13,7 @@ public class BlockAshPlank extends Block
     {
         super(Material.wood);
         setCreativeTab(Symbology.symbologyTab);
-        setUnlocalizedName("ash_plank");
+        setUnlocalizedName("ash_block");
     }
 
     @SideOnly(Side.CLIENT)

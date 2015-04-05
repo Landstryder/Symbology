@@ -3,7 +3,6 @@ package com.teamrune.symbology.registers.recipes;
 import com.teamrune.symbology.Symbology;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
@@ -22,6 +21,7 @@ public class CraftingRecipes
         GameRegistry.addRecipe(new ItemStack(Symbology.magic_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.earth_rune_block), "gmg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'm', new ItemStack(Symbology.rune_matrix), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.target_rune_block), "gsg", "sbs", "gsg", 'g', new ItemStack(Items.gold_ingot), 's', new ItemStack(Symbology.silver_ingot), 'b', new ItemStack(Symbology.slate_block));
+        GameRegistry.addShapelessRecipe(new ItemStack(Symbology.ash_plank, 4), new ItemStack(Symbology.ash_log));
         GameRegistry.addShapelessRecipe(new ItemStack(Symbology.rune, 1, 0), new ItemStack(Symbology.scribe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Symbology.slate_block));
         GameRegistry.addShapelessRecipe(new ItemStack(Symbology.aventurine_dust), new ItemStack(Symbology.mortar, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Symbology.aventurine_gem));
         GameRegistry.addShapelessRecipe(new ItemStack(Symbology.ruby_dust), new ItemStack(Symbology.mortar, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Symbology.ruby_gem));
