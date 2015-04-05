@@ -71,7 +71,7 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
 			Random rand = new Random();
 			int gen = rand.nextInt(3);
 			BlockPos pos = world.getTopSolidOrLiquidBlock(new BlockPos(xCoord, 0, zCoord));
-			if (world.getBiomeGenForCoords(pos).biomeName == BiomeGenBase.forest.biomeName && gen < 1) {
+			if ((world.getBiomeGenForCoords(pos).biomeName == BiomeGenBase.forest.biomeName || world.getBiomeGenForCoords(pos).biomeName == BiomeGenBase.birchForest.biomeName || world.getBiomeGenForCoords(pos).biomeName == BiomeGenBase.forestHills.biomeName || world.getBiomeGenForCoords(pos).biomeName == BiomeGenBase.birchForestHills.biomeName) && gen < 1) {
 				if (!net.minecraftforge.event.terraingen.TerrainGen.saplingGrowTree(world, random, pos)) return;
 		        Object object = random.nextInt(10) == 0 ? new WorldGenBigSymbologyTree(true) : new WorldGenSymbologyTrees(true);
 		        int i = 0;
