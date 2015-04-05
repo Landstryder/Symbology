@@ -9,6 +9,7 @@ import java.util.Random;
 import com.teamrune.symbology.Symbology;
 
 import net.minecraft.block.BlockChest;
+import net.minecraft.block.BlockStoneBrick;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
@@ -26,6 +27,7 @@ import net.minecraftforge.common.ChestGenHooks;
 public class ComponentAltar extends StructureVillagePieces.House1 {
 	
 	private int averageGroundLevel = -1;
+	private Random rand;
 	
 	public ComponentAltar() {}
 
@@ -48,6 +50,7 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
      */
     public boolean addComponentParts(World worldIn, Random rand, StructureBoundingBox box)
     {
+    	this.rand = rand;
         if (this.averageGroundLevel < 0)
         {
             this.averageGroundLevel = this.getAverageGroundLevel(worldIn, box);
@@ -67,46 +70,85 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
         	for (l = 0; l <= 10; l++) {
         		int ran = rand.nextInt(99);
         		if (ran <= 9) {
-        			this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), k, 0, l, box);
+        			super.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), k, 0, l, box);
         		} else if(ran <= 34 && ran >= 10) {
-        			this.func_175811_a(worldIn, Blocks.gravel.getDefaultState(), k, 0, l, box);
+        			super.func_175811_a(worldIn, Blocks.gravel.getDefaultState(), k, 0, l, box);
         		} else {
-        			this.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, 0, l, box);
+        			super.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, 0, l, box);
         		}
         	}
         }
         
         //Fire Arch
-        this.func_175804_a(worldIn, box, 3, 2, 0, 3, 4, 0, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 7, 2, 0, 7, 4, 0, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 4, 4, 0, box);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 6, 4, 0, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 3, 1, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 2, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 3, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 4, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 4, 4, 0, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 7, 1, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 2, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 3, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 4, 0, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 6, 4, 0, box);
+		this.placeBlock(worldIn, Symbology.fire_rune_block.getDefaultState(), 5, 4, 0, box);
 		
 		//Air Arch
-        this.func_175804_a(worldIn, box, 10, 2, 3, 10, 4, 3, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 10, 2, 7, 10, 4, 7, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 4, box);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 6, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 10, 1, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 2, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 3, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 3, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 10, 1, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 2, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 3, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 4, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 10, 4, 6, box);
+		this.placeBlock(worldIn, Symbology.air_rune_block.getDefaultState(), 10, 4, 5, box);
 		
 
 		//Water Arch
-        this.func_175804_a(worldIn, box, 3, 2, 10, 3, 4, 10, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 7, 2, 10, 7, 4, 10, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 4, 4, 10, box);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 6, 4, 10, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 3, 1, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 2, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 3, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 3, 4, 10, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 7, 1, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 2, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 3, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 7, 4, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 4, 4, 10, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 6, 4, 10, box);
+		this.placeBlock(worldIn, Symbology.water_rune_block.getDefaultState(), 5, 4, 10, box);
 		
 
 		//Earth Arch
-        this.func_175804_a(worldIn, box, 0, 2, 3, 0, 4, 3, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 0, 2, 7, 0, 4, 7, Symbology.blank_rune_block.getDefaultState(), Symbology.blank_rune_block.getDefaultState(), false);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 4, box);
-		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 6, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 0, 1, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 2, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 3, 3, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 3, box);
+		this.placeBlock(worldIn, Symbology.magic_rune_block.getDefaultState(), 0, 1, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 2, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 3, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 7, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 4, box);
+		this.placeBlock(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 6, box);
+		this.placeBlock(worldIn, Symbology.earth_rune_block.getDefaultState(), 0, 4, 5, box);
+		
+		//Targets
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 5, 1, 2, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 7, 1, 3, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 8, 1, 5, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 7, 1, 7, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 5, 1, 8, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 3, 1, 7, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 2, 1, 5, box);
+		this.placeBlock(worldIn, Symbology.target_rune_block.getDefaultState(), 3, 1, 3, box);
+		this.placeBlock(worldIn, Symbology.crafting_rune_block.getDefaultState(), 5, 1, 5, box);
 		
 		//Hole
 		for (k=3; k<9; k++){
 			for (l=3; l<9; l++) {
 				for (int z=-1; z>-6; z--) {
-					this.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, z, l, box);
+					super.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, z, l, box);
 				}
 			}
 		}
@@ -114,7 +156,7 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 		for (k=4; k<7; k++){
 			for (l=4; l<7; l++) {
 				for (int z=-1; z>-5; z--) {
-					this.func_175811_a(worldIn, Blocks.air.getDefaultState(), k, z, l, box);
+					super.func_175811_a(worldIn, Blocks.air.getDefaultState(), k, z, l, box);
 				}
 			}
 		}
@@ -123,119 +165,10 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 
 		for (k=3; k<9; k++){
 			for (l=3; l<9; l++) {
-				this.func_175811_a(worldIn, Blocks.tnt.getDefaultState(), k, -6, l, box);
+				super.func_175811_a(worldIn, Blocks.tnt.getDefaultState(), k, -6, l, box);
 			}
 		}
-		
-		int chance;
-		//Chanced
-		for (k = 0; k < 21; k++) {
-			chance = rand.nextInt(10);
-			//Fire
-			if (k == 0 && chance == 1) this.func_175811_a(worldIn, Symbology.fire_rune_block.getDefaultState(), 5, 4, 0, box);
-			if (k == 1 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 3, 1, 0, box);
-			if (k == 2 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 7, 1, 0, box);
-			
-			//Air
-			if (k == 3 && chance == 1) this.func_175811_a(worldIn, Symbology.air_rune_block.getDefaultState(), 10, 4, 5, box);
-			if (k == 4 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 10, 1, 3, box);
-			if (k == 5 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 10, 1, 7, box);
-			
-			//Water
-			if (k == 6 && chance == 1) this.func_175811_a(worldIn, Symbology.water_rune_block.getDefaultState(), 5, 4, 10, box);
-			if (k == 7 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 3, 1, 10, box);
-			if (k == 8 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 7, 1, 10, box);
-			
-			//Earth
-			if (k == 9 && chance == 1) this.func_175811_a(worldIn, Symbology.earth_rune_block.getDefaultState(), 0, 4, 5, box);
-			if (k == 10 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 0, 1, 3, box);
-			if (k == 11 && chance == 1) this.func_175811_a(worldIn, Symbology.magic_rune_block.getDefaultState(), 0, 1, 7, box);
-			
-			//Targets
-			if (k == 12 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 5, 1, 2, box);
-			if (k == 13 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 7, 1, 3, box);
-			if (k == 14 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 8, 1, 5, box);
-			if (k == 15 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 7, 1, 7, box);
-			if (k == 16 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 5, 1, 8, box);
-			if (k == 17 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 3, 1, 7, box);
-			if (k == 18 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 2, 1, 5, box);
-			if (k == 19 && chance == 1) this.func_175811_a(worldIn, Symbology.target_rune_block.getDefaultState(), 3, 1, 3, box);
-			if (k == 20 && chance == 1) this.func_175811_a(worldIn, Symbology.crafting_rune_block.getDefaultState(), 5, 1, 5, box);
-		}
-		
-        /*this.func_175804_a(worldIn, box, 0, 6, 1, 8, 6, 4, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 0, 7, 2, 8, 7, 3, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        int i = this.getMetadataWithOffset(Blocks.oak_stairs, 3);
-        int j = this.getMetadataWithOffset(Blocks.oak_stairs, 2);
 
-        for (k = -1; k <= 2; ++k)
-        {
-            for (l = 0; l <= 8; ++l)
-            {
-                this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(i), l, 6 + k, k, box);
-                this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(j), l, 6 + k, 5 - k, box);
-            }
-        }
-
-        this.func_175804_a(worldIn, box, 0, 1, 0, 0, 1, 5, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 1, 1, 5, 8, 1, 5, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 8, 1, 0, 8, 1, 4, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 2, 1, 0, 7, 1, 0, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 0, 2, 0, 0, 4, 0, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 0, 2, 5, 0, 4, 5, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 8, 2, 5, 8, 4, 5, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 8, 2, 0, 8, 4, 0, Blocks.diamond_block.getDefaultState(), Blocks.diamond_block.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 0, 2, 1, 0, 4, 4, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 1, 2, 5, 7, 4, 5, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 8, 2, 1, 8, 4, 4, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 1, 2, 0, 7, 4, 0, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 4, 2, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 5, 2, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 6, 2, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 4, 3, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 5, 3, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 6, 3, 0, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 0, 2, 2, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 0, 2, 3, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 0, 3, 2, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 0, 3, 3, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 8, 2, 2, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 8, 2, 3, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 8, 3, 2, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 8, 3, 3, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 2, 2, 5, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 3, 2, 5, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 5, 2, 5, box);
-        this.func_175811_a(worldIn, Blocks.glass_pane.getDefaultState(), 6, 2, 5, box);
-        this.func_175804_a(worldIn, box, 1, 4, 1, 7, 4, 1, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 1, 4, 4, 7, 4, 4, Blocks.planks.getDefaultState(), Blocks.planks.getDefaultState(), false);
-        this.func_175804_a(worldIn, box, 1, 3, 4, 7, 3, 4, Blocks.bookshelf.getDefaultState(), Blocks.bookshelf.getDefaultState(), false);
-        this.func_175811_a(worldIn, Blocks.planks.getDefaultState(), 7, 1, 4, box);
-        this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(this.getMetadataWithOffset(Blocks.oak_stairs, 0)), 7, 1, 3, box);
-        k = this.getMetadataWithOffset(Blocks.oak_stairs, 3);
-        this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(k), 6, 1, 4, box);
-        this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(k), 5, 1, 4, box);
-        this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(k), 4, 1, 4, box);
-        this.func_175811_a(worldIn, Blocks.oak_stairs.getStateFromMeta(k), 3, 1, 4, box);
-        this.func_175811_a(worldIn, Blocks.oak_fence.getDefaultState(), 6, 1, 3, box);
-        this.func_175811_a(worldIn, Blocks.wooden_pressure_plate.getDefaultState(), 6, 2, 3, box);
-        this.func_175811_a(worldIn, Blocks.oak_fence.getDefaultState(), 4, 1, 3, box);
-        this.func_175811_a(worldIn, Blocks.wooden_pressure_plate.getDefaultState(), 4, 2, 3, box);
-        this.func_175811_a(worldIn, Blocks.crafting_table.getDefaultState(), 7, 1, 1, box);
-        this.func_175811_a(worldIn, Blocks.air.getDefaultState(), 1, 1, 0, box);
-        this.func_175811_a(worldIn, Blocks.air.getDefaultState(), 1, 2, 0, box);
-        this.func_175810_a(worldIn, box, rand, 1, 1, 0, EnumFacing.getHorizontal(this.getMetadataWithOffset(Blocks.oak_door, 1)));
-
-        for (l = 0; l < 6; ++l)
-        {
-            for (int i1 = 0; i1 < 9; ++i1)
-            {
-                this.clearCurrentPositionBlocksUpwards(worldIn, i1, 9, l, box);
-                this.func_175808_b(worldIn, Blocks.diamond_block.getDefaultState(), i1, -1, l, box);
-            }
-        }
-
-        this.spawnVillagers(worldIn, box, 2, 1, 2, 1);*/
         return true;
     }
 
@@ -266,6 +199,18 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
         {
             return false;
         }
+    }
+    
+    protected void placeBlock(World worldIn, IBlockState p_175811_2_, int p_175811_3_, int p_175811_4_, int p_175811_5_, StructureBoundingBox p_175811_6_)
+    {
+    	IBlockState iblockstate1;
+    	int chance = rand.nextInt(10);
+    	if (chance == 1) {
+    		iblockstate1 = this.func_175847_a(p_175811_2_);
+    	} else {
+    		iblockstate1 = this.func_175847_a(Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.byMetadata(1)));
+    	}
+        super.func_175811_a(worldIn, iblockstate1, p_175811_3_, p_175811_4_, p_175811_5_, p_175811_6_);
     }
 
 }
