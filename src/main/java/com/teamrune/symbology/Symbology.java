@@ -61,6 +61,7 @@ public class Symbology {
 	public static Block topaz_ore;
 	public static Block aventurine_ore;
 	public static Block ash_log;
+    public static Block ash_plank;
 	public static Block ash_leaves;
 	public static Block ash_sapling;
     public static Block silver_ore;

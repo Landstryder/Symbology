@@ -2,7 +2,6 @@ package com.teamrune.symbology.items;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
 import com.teamrune.symbology.Symbology;
 
 public class ItemMortar extends Item
@@ -37,7 +36,7 @@ public class ItemMortar extends Item
     public ItemStack getContainerItem(ItemStack itemStack)
     {
         ItemStack cStack = itemStack.copy();
-       cStack.setItemDamage(cStack.getItemDamage() + 1);
+        cStack.setItemDamage(cStack.getItemDamage() + 1);
         cStack.stackSize = 1;
         return cStack;
     }

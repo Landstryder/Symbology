@@ -1,20 +1,19 @@
 package com.teamrune.symbology.blocks;
 
+import com.teamrune.symbology.Symbology;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.EnumWorldBlockLayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import com.teamrune.symbology.Symbology;
 
-
-public class BlockSlateBlock extends Block
+public class BlockAshPlank extends Block
 {
-    public BlockSlateBlock()
+    public BlockAshPlank()
     {
-        super(Material.rock);
+        super(Material.wood);
         setCreativeTab(Symbology.symbologyTab);
-        setUnlocalizedName("slate_block");
+        setUnlocalizedName("ash_plank");
     }
 
     @SideOnly(Side.CLIENT)

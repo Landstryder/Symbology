@@ -37,6 +37,7 @@ public class RegisterBlocks {
     	Symbology.ruby_ore = new BlockRubyOre();
     	Symbology.aventurine_ore = new BlockAventurineOre();
     	Symbology.ash_log = new BlockAshLog();
+        Symbology.ash_plank = new BlockAshPlank();
     	Symbology.ash_leaves = new BlockAshLeafBlock();
     	Symbology.ash_sapling = new BlockAshSapling();
         Symbology.silver_ore = new BlockSilverOre();
@@ -54,6 +55,7 @@ public class RegisterBlocks {
         RegisterHelper.registerBlock(Symbology.ruby_ore);
         RegisterHelper.registerBlock(Symbology.aventurine_ore);
         RegisterHelper.registerBlock(Symbology.ash_log);
+        RegisterHelper.registerBlock(Symbology.ash_plank);
         RegisterHelper.registerBlock(Symbology.ash_leaves);
         RegisterHelper.registerBlock(Symbology.ash_sapling);
         RegisterHelper.registerBlock(Symbology.silver_ore);

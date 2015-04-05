@@ -55,6 +55,7 @@ public class ClientProxySymbology extends CommonProxySymbology {
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ruby_ore), 0, "ruby_ore");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.aventurine_ore), 0, "aventurine_ore");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_log), 0, "ash_log");
+        RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_plank), 0, "ash_plank");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_leaves), 0, "ash_leaves");
 		RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.ash_sapling), 0, "ash_sapling");
         RegisterHelper.registerItemRenders(Item.getItemFromBlock(Symbology.silver_ore), 0, "silver_ore");
