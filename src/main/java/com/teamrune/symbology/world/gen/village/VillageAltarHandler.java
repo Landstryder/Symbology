@@ -12,7 +12,7 @@ public class VillageAltarHandler implements IVillageCreationHandler {
 
 	@Override
 	public PieceWeight getVillagePieceWeight(Random random, int i) {
-		return new PieceWeight(ComponentAltar.class, 1, 1);
+		return new PieceWeight(ComponentAltar.class, 5, 1);
 	}
 
 	@Override
