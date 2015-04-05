@@ -1,17 +1,27 @@
 package com.teamrune.symbology.world.gen.village;
 
+import static net.minecraftforge.common.ChestGenHooks.DUNGEON_CHEST;
+import static net.minecraftforge.common.ChestGenHooks.VILLAGE_BLACKSMITH;
+
 import java.util.List;
 import java.util.Random;
 
 import com.teamrune.symbology.Symbology;
 
+import net.minecraft.block.BlockChest;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
 import net.minecraft.world.gen.structure.StructureVillagePieces;
+import net.minecraftforge.common.ChestGenHooks;
 
 public class ComponentAltar extends StructureVillagePieces.House1 {
 	
@@ -93,8 +103,29 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 		this.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), 0, 4, 6, box);
 		
 		//Hole
-		this.func_175804_a(worldIn, box, 3, -1, 3, 8, -5, 8, Blocks.mossy_cobblestone.getDefaultState(), Blocks.mossy_cobblestone.getDefaultState(), false);
-		this.func_175804_a(worldIn, box, 4, -1, 4, 7, -4, 7, Blocks.air.getDefaultState(), Blocks.air.getDefaultState(), false);
+		for (k=3; k<9; k++){
+			for (l=3; l<9; l++) {
+				for (int z=-1; z>-6; z--) {
+					this.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, z, l, box);
+				}
+			}
+		}
+		
+		for (k=4; k<7; k++){
+			for (l=4; l<7; l++) {
+				for (int z=-1; z>-5; z--) {
+					this.func_175811_a(worldIn, Blocks.air.getDefaultState(), k, z, l, box);
+				}
+			}
+		}
+		
+		this.func_180778_a(worldIn, box, rand, 5, -4, 5, ChestGenHooks.getItems(DUNGEON_CHEST, rand), ChestGenHooks.getCount(DUNGEON_CHEST, rand));
+
+		for (k=3; k<9; k++){
+			for (l=3; l<9; l++) {
+				this.func_175811_a(worldIn, Blocks.tnt.getDefaultState(), k, -6, l, box);
+			}
+		}
 		
 		int chance;
 		//Chanced
@@ -211,6 +242,30 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
     protected int func_180779_c(int p_180779_1_, int p_180779_2_)
     {
         return 1;
+    }
+    
+    @Override
+    protected boolean func_180778_a(World worldIn, StructureBoundingBox p_180778_2_, Random p_180778_3_, int p_180778_4_, int p_180778_5_, int p_180778_6_, List p_180778_7_, int p_180778_8_)
+    {
+        BlockPos blockpos = new BlockPos(this.getXWithOffset(p_180778_4_, p_180778_6_), this.getYWithOffset(p_180778_5_), this.getZWithOffset(p_180778_4_, p_180778_6_));
+
+        if (p_180778_2_.func_175898_b(blockpos) && worldIn.getBlockState(blockpos).getBlock() != Blocks.chest)
+        {
+            IBlockState iblockstate = Blocks.trapped_chest.getDefaultState();
+            worldIn.setBlockState(blockpos, ((BlockChest) Blocks.trapped_chest).correctFacing(worldIn, blockpos, iblockstate), 2);
+            TileEntity tileentity = worldIn.getTileEntity(blockpos);
+
+            if (tileentity instanceof TileEntityChest)
+            {
+                WeightedRandomChestContent.generateChestContents(p_180778_3_, p_180778_7_, (TileEntityChest)tileentity, p_180778_8_);
+            }
+
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }
