@@ -1,7 +1,7 @@
 {
     "parent": "builtin/generated",
     "textures": {
-        "layer0": "#texture"
+        "layer0": "symbology:items/runes/blank_rune"
     },
     "display": {
         "thirdperson": {
