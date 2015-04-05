@@ -4,6 +4,7 @@ import com.teamrune.symbology.registers.recipes.CraftingRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
 import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
@@ -21,6 +23,8 @@ import com.teamrune.symbology.registers.RegisterBlocks;
 import com.teamrune.symbology.registers.RegisterItems;
 import com.teamrune.symbology.world.gen.WorldGenSymbologyTrees;
 import com.teamrune.symbology.world.gen.WorldGeneratorSymbology;
+import com.teamrune.symbology.world.gen.village.ComponentAltar;
+import com.teamrune.symbology.world.gen.village.VillageAltarHandler;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION)
 public class Symbology {
@@ -77,6 +81,10 @@ public class Symbology {
 	public void preInit(FMLPreInitializationEvent event) {
 		
 		GameRegistry.registerWorldGenerator(new WorldGeneratorSymbology(), 0);
+		
+
+        VillagerRegistry.instance().registerVillageCreationHandler(new VillageAltarHandler());
+		MapGenStructureIO.registerStructureComponent(ComponentAltar.class, "symbology:altar");
 		
 		proxy.registerLoaders();
 
