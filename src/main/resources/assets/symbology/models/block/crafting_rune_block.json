@@ -4,9 +4,9 @@
         "particle": "symbology:blocks/blank_rune_block",
         "up": "symbology:blocks/crafting_rune_block",
         "down": "symbology:blocks/blank_rune_block",
-        "north": "symbology:blocks/target_rune_block",
-        "south": "symbology:blocks/target_rune_block",
-        "east": "symbology:blocks/target_rune_block",
-        "west": "symbology:blocks/target_rune_block"
+        "north": "symbology:blocks/fire_rune_block",
+        "south": "symbology:blocks/water_rune_block",
+        "east": "symbology:blocks/air_rune_block",
+        "west": "symbology:blocks/earth_rune_block"
     }
 }
