@@ -13,6 +13,7 @@ public class CraftingRecipes
     {
         GameRegistry.addRecipe(new ItemStack(Symbology.mortar), "sts", " s ", 's', new ItemStack(Blocks.stone), 't', new ItemStack(Items.stick));
         GameRegistry.addRecipe(new ItemStack(Symbology.scribe), "il ", "lil", " ld", 'i', new ItemStack(Items.iron_ingot), 'l', new ItemStack(Items.leather), 'd', new ItemStack(Items.diamond));
+        GameRegistry.addRecipe(new ItemStack(Symbology.rune_matrix), "sgs", "gtg", "sgs", 's', new ItemStack(Symbology.silver_ingot), 'g', new ItemStack(Items.gold_ingot), 't', new ItemStack(Blocks.crafting_table));
         GameRegistry.addRecipe(new ItemStack(Symbology.blank_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 0), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.fire_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 3), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.water_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 4), 's', new ItemStack(Symbology.slate_block));
