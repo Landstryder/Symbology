@@ -19,7 +19,7 @@ public class CraftingRecipes
         GameRegistry.addRecipe(new ItemStack(Symbology.air_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 2), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.earth_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 1), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.magic_rune_block), "grg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
-        GameRegistry.addRecipe(new ItemStack(Symbology.earth_rune_block), "gmg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'm', new ItemStack(Symbology.rune_matrix), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
+        GameRegistry.addRecipe(new ItemStack(Symbology.crafting_rune_block), "gmg", "rsr", "grg", 'g', new ItemStack(Items.gold_ingot), 'm', new ItemStack(Symbology.rune_matrix), 'r', new ItemStack(Symbology.rune, 1, 26), 's', new ItemStack(Symbology.slate_block));
         GameRegistry.addRecipe(new ItemStack(Symbology.target_rune_block), "gsg", "sbs", "gsg", 'g', new ItemStack(Items.gold_ingot), 's', new ItemStack(Symbology.silver_ingot), 'b', new ItemStack(Symbology.slate_block));
         GameRegistry.addShapelessRecipe(new ItemStack(Symbology.ash_plank, 4), new ItemStack(Symbology.ash_log));
         GameRegistry.addShapelessRecipe(new ItemStack(Symbology.rune, 1, 0), new ItemStack(Symbology.scribe, 1, OreDictionary.WILDCARD_VALUE), new ItemStack(Symbology.slate_block));
