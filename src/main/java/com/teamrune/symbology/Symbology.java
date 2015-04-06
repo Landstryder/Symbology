@@ -21,6 +21,7 @@ import com.teamrune.symbology.proxies.CommonProxySymbology;
 import com.teamrune.symbology.reference.Reference;
 import com.teamrune.symbology.registers.RegisterBlocks;
 import com.teamrune.symbology.registers.RegisterItems;
+import com.teamrune.symbology.registers.RegisterOreDict;
 import com.teamrune.symbology.world.gen.WorldGenSymbologyTrees;
 import com.teamrune.symbology.world.gen.WorldGeneratorSymbology;
 import com.teamrune.symbology.world.gen.village.ComponentAltar;
@@ -91,6 +92,7 @@ public class Symbology {
 
 		RegisterBlocks.blockRegisters();
 		RegisterItems.itemRegisters();
+		RegisterOreDict.AddOres();
 		proxy.addVariants();
 		
 	}
