@@ -22,7 +22,7 @@ public class ItemMatrix extends Item
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
 
-        playerIn.displayGui(new BlockWorkbench.InterfaceCraftingTable(worldIn, BlockPos.ORIGIN));
+        playerIn.displayGui(new BlockWorkbench.InterfaceCraftingTable(worldIn, playerIn.getPosition()));
         return itemStackIn;
     }
 }
