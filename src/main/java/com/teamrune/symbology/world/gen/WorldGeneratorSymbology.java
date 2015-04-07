@@ -123,8 +123,6 @@ public class WorldGeneratorSymbology implements IWorldGenerator {
             BlockPos pos = new BlockPos(xCoord, yCoord, zCoord);
             if ((world.getBlockState(pos).getBlock() == Blocks.stone) || (world.getBlockState(pos).getBlock() == Symbology.slate_block)) {
                 gen.generate(world, random, pos);
-            } else {
-                i--;
             }
         }
 	}
