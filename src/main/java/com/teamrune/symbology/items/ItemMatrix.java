@@ -29,7 +29,9 @@ public class ItemMatrix extends Item
 
     public ItemStack onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn)
     {
-        playerIn.displayGui(new ItemMatrix.InterfaceCraftingTable(worldIn, playerIn.getPosition()));
+    	if (!playerIn.isSneaking()) {
+    		playerIn.displayGui(new ItemMatrix.InterfaceCraftingTable(worldIn, playerIn.getPosition()));
+    	}
         return itemStackIn;
     }
     
