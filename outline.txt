@@ -57,6 +57,12 @@ II) Runes
 		2) Self
 		3) Time
 		4) World
+	i) Compound Rune
+		1) Item made of up of more than one runes
+		2) Can be applied to tools, staves, and some other items
+		3) If it includes the Self run can be applied to player by right clicking
+		4) If it includes the Others rune can be applied to other  players or entities
+		5) If it includes the world rune it can be placed in the world or applied to tile entities
 		
 III) Enchanting
 	a) Basic crafting
