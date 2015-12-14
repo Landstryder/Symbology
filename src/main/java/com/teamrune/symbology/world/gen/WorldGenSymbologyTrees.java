@@ -55,9 +55,9 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
         this.setBlockAndNotifyAdequately(world, pos, Blocks.cocoa.getDefaultState().withProperty(BlockCocoa.AGE, Integer.valueOf(i)).withProperty(BlockCocoa.FACING, face));
     }
 
-    public boolean generate(World worldIn, Random p_180709_2_, BlockPos p_180709_3_)
+    public boolean generate(World worldIn, Random rand, BlockPos pos)
     {
-        int i = p_180709_2_.nextInt(3) + this.minTreeHeight;
+        int i = rand.nextInt(3) + this.minTreeHeight;
         boolean flag = true;
 
         if (pos.getY() >= 1 && pos.getY() + i + 1 <= 256)
