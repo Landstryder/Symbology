@@ -5,8 +5,10 @@ import java.util.Random;
 import com.teamrune.symbology.Symbology;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCocoa;
 import net.minecraft.block.BlockVine;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -24,7 +26,6 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
     private final int metaWood;
     /** The metadata value of the leaves to use in tree generation. */
     private final int metaLeaves;
-    private static final String __OBFID = "CL_00000438";
 
     public WorldGenSymbologyTrees(boolean p_i2027_1_)
     {
@@ -39,34 +40,48 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
         this.metaLeaves = p_i2028_4_;
         this.vinesGrow = p_i2028_5_;
     }
-
-    public boolean generate(World worldIn, Random p_180709_2_, BlockPos p_180709_3_)
+    
+    private void setBlock(World worldIn, BlockPos pos, Block block, int meta) {
+    	this.setBlockAndNotifyAdequately(worldIn, pos, block.getStateFromMeta(meta));
+    }
+    
+    private void setBlockByPropertyBool(World world, BlockPos pos, Block block, PropertyBool prop)
     {
-        int i = p_180709_2_.nextInt(3) + this.minTreeHeight;
+        this.setBlockAndNotifyAdequately(world, pos, block.getDefaultState().withProperty(prop, Boolean.valueOf(true)));
+    }
+    
+    private void setBlockCocoa(World world, int i, BlockPos pos, EnumFacing face)
+    {
+        this.setBlockAndNotifyAdequately(world, pos, Blocks.cocoa.getDefaultState().withProperty(BlockCocoa.AGE, Integer.valueOf(i)).withProperty(BlockCocoa.FACING, face));
+    }
+
+    public boolean generate(World worldIn, Random rand, BlockPos pos)
+    {
+        int i = rand.nextInt(3) + this.minTreeHeight;
         boolean flag = true;
 
-        if (p_180709_3_.getY() >= 1 && p_180709_3_.getY() + i + 1 <= 256)
+        if (pos.getY() >= 1 && pos.getY() + i + 1 <= 256)
         {
             byte b0;
             int l;
 
-            for (int j = p_180709_3_.getY(); j <= p_180709_3_.getY() + 1 + i; ++j)
+            for (int j = pos.getY(); j <= pos.getY() + 1 + i; ++j)
             {
                 b0 = 1;
 
-                if (j == p_180709_3_.getY())
+                if (j == pos.getY())
                 {
                     b0 = 0;
                 }
 
-                if (j >= p_180709_3_.getY() + 1 + i - 2)
+                if (j >= pos.getY() + 1 + i - 2)
                 {
                     b0 = 2;
                 }
 
-                for (int k = p_180709_3_.getX() - b0; k <= p_180709_3_.getX() + b0 && flag; ++k)
+                for (int k = pos.getX() - b0; k <= pos.getX() + b0 && flag; ++k)
                 {
-                    for (l = p_180709_3_.getZ() - b0; l <= p_180709_3_.getZ() + b0 && flag; ++l)
+                    for (l = pos.getZ() - b0; l <= pos.getZ() + b0 && flag; ++l)
                     {
                         if (j >= 0 && j < 256)
                         {
@@ -89,13 +104,13 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
             }
             else
             {
-                BlockPos down = p_180709_3_.down();
+                BlockPos down = pos.down();
                 Block block1 = worldIn.getBlockState(down).getBlock();
                 boolean isSoil = block1.canSustainPlant(worldIn, down, net.minecraft.util.EnumFacing.UP, (IPlantable) Symbology.ash_sapling);
 
-                if (isSoil && p_180709_3_.getY() < 256 - i - 1)
+                if (isSoil && pos.getY() < 256 - i - 1)
                 {
-                    block1.onPlantGrow(worldIn, down, p_180709_3_);
+                    block1.onPlantGrow(worldIn, down, pos);
                     b0 = 3;
                     byte b1 = 0;
                     int i1;
@@ -104,27 +119,27 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
                     int l1;
                     BlockPos blockpos1;
 
-                    for (l = p_180709_3_.getY() - b0 + i; l <= p_180709_3_.getY() + i; ++l)
+                    for (l = pos.getY() - b0 + i; l <= pos.getY() + i; ++l)
                     {
-                        i1 = l - (p_180709_3_.getY() + i);
+                        i1 = l - (pos.getY() + i);
                         j1 = b1 + 1 - i1 / 2;
 
-                        for (k1 = p_180709_3_.getX() - j1; k1 <= p_180709_3_.getX() + j1; ++k1)
+                        for (k1 = pos.getX() - j1; k1 <= pos.getX() + j1; ++k1)
                         {
-                            l1 = k1 - p_180709_3_.getX();
+                            l1 = k1 - pos.getX();
 
-                            for (int i2 = p_180709_3_.getZ() - j1; i2 <= p_180709_3_.getZ() + j1; ++i2)
+                            for (int i2 = pos.getZ() - j1; i2 <= pos.getZ() + j1; ++i2)
                             {
-                                int j2 = i2 - p_180709_3_.getZ();
+                                int j2 = i2 - pos.getZ();
 
-                                if (Math.abs(l1) != j1 || Math.abs(j2) != j1 || p_180709_2_.nextInt(2) != 0 && i1 != 0)
+                                if (Math.abs(l1) != j1 || Math.abs(j2) != j1 || rand.nextInt(2) != 0 && i1 != 0)
                                 {
                                     blockpos1 = new BlockPos(k1, l, i2);
                                     Block block = worldIn.getBlockState(blockpos1).getBlock();
 
                                     if (block.isAir(worldIn, blockpos1) || block.isLeaves(worldIn, blockpos1) || block.getMaterial() == Material.vine)
                                     {
-                                        this.func_175905_a(worldIn, blockpos1, Symbology.ash_leaves, this.metaLeaves);
+                                        this.setBlock(worldIn, blockpos1, Symbology.ash_leaves, this.metaLeaves);
                                     }
                                 }
                             }
@@ -133,33 +148,33 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
 
                     for (l = 0; l < i; ++l)
                     {
-                        BlockPos upN = p_180709_3_.up(l);
+                        BlockPos upN = pos.up(l);
                         Block block2 = worldIn.getBlockState(upN).getBlock();
 
                         if (block2.isAir(worldIn, upN) || block2.isLeaves(worldIn, upN) || block2.getMaterial() == Material.vine)
                         {
-                            this.func_175905_a(worldIn, p_180709_3_.up(l), Symbology.ash_log, this.metaWood);
+                            this.setBlock(worldIn, pos.up(l), Symbology.ash_log, this.metaWood);
 
                             if (this.vinesGrow && l > 0)
                             {
-                                if (p_180709_2_.nextInt(3) > 0 && worldIn.isAirBlock(p_180709_3_.add(-1, l, 0)))
+                                if (rand.nextInt(3) > 0 && worldIn.isAirBlock(pos.add(-1, l, 0)))
                                 {
-                                    this.func_175905_a(worldIn, p_180709_3_.add(-1, l, 0), Blocks.vine, BlockVine.EAST_FLAG);
+                                    this.setBlockByPropertyBool(worldIn, pos.add(-1, l, 0), Blocks.vine, BlockVine.EAST);
                                 }
 
-                                if (p_180709_2_.nextInt(3) > 0 && worldIn.isAirBlock(p_180709_3_.add(1, l, 0)))
+                                if (rand.nextInt(3) > 0 && worldIn.isAirBlock(pos.add(1, l, 0)))
                                 {
-                                    this.func_175905_a(worldIn, p_180709_3_.add(1, l, 0), Blocks.vine, BlockVine.WEST_FLAG);
+                                    this.setBlockByPropertyBool(worldIn, pos.add(1, l, 0), Blocks.vine, BlockVine.WEST);
                                 }
 
-                                if (p_180709_2_.nextInt(3) > 0 && worldIn.isAirBlock(p_180709_3_.add(0, l, -1)))
+                                if (rand.nextInt(3) > 0 && worldIn.isAirBlock(pos.add(0, l, -1)))
                                 {
-                                    this.func_175905_a(worldIn, p_180709_3_.add(0, l, -1), Blocks.vine, BlockVine.SOUTH_FLAG);
+                                    this.setBlockByPropertyBool(worldIn, pos.add(0, l, -1), Blocks.vine, BlockVine.SOUTH);
                                 }
 
-                                if (p_180709_2_.nextInt(3) > 0 && worldIn.isAirBlock(p_180709_3_.add(0, l, 1)))
+                                if (rand.nextInt(3) > 0 && worldIn.isAirBlock(pos.add(0, l, 1)))
                                 {
-                                    this.func_175905_a(worldIn, p_180709_3_.add(0, l, 1), Blocks.vine, BlockVine.NORTH_FLAG);
+                                    this.setBlockByPropertyBool(worldIn, pos.add(0, l, 1), Blocks.vine, BlockVine.NORTH);
                                 }
                             }
                         }
@@ -167,14 +182,14 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
 
                     if (this.vinesGrow)
                     {
-                        for (l = p_180709_3_.getY() - 3 + i; l <= p_180709_3_.getY() + i; ++l)
+                        for (l = pos.getY() - 3 + i; l <= pos.getY() + i; ++l)
                         {
-                            i1 = l - (p_180709_3_.getY() + i);
+                            i1 = l - (pos.getY() + i);
                             j1 = 2 - i1 / 2;
 
-                            for (k1 = p_180709_3_.getX() - j1; k1 <= p_180709_3_.getX() + j1; ++k1)
+                            for (k1 = pos.getX() - j1; k1 <= pos.getX() + j1; ++k1)
                             {
-                                for (l1 = p_180709_3_.getZ() - j1; l1 <= p_180709_3_.getZ() + j1; ++l1)
+                                for (l1 = pos.getZ() - j1; l1 <= pos.getZ() + j1; ++l1)
                                 {
                                     BlockPos blockpos3 = new BlockPos(k1, l, l1);
 
@@ -185,41 +200,41 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
                                         BlockPos blockpos5 = blockpos3.north();
                                         BlockPos blockpos2 = blockpos3.south();
 
-                                        if (p_180709_2_.nextInt(4) == 0 && worldIn.getBlockState(blockpos4).getBlock().isAir(worldIn, blockpos4))
+                                        if (rand.nextInt(4) == 0 && worldIn.getBlockState(blockpos4).getBlock().isAir(worldIn, blockpos4))
                                         {
-                                            this.func_175923_a(worldIn, blockpos4, BlockVine.EAST_FLAG);
+                                            this.func_175923_a(worldIn, blockpos4, BlockVine.EAST);
                                         }
 
-                                        if (p_180709_2_.nextInt(4) == 0 && worldIn.getBlockState(blockpos1).getBlock().isAir(worldIn, blockpos1))
+                                        if (rand.nextInt(4) == 0 && worldIn.getBlockState(blockpos1).getBlock().isAir(worldIn, blockpos1))
                                         {
-                                            this.func_175923_a(worldIn, blockpos1, BlockVine.WEST_FLAG);
+                                            this.func_175923_a(worldIn, blockpos1, BlockVine.WEST);
                                         }
 
-                                        if (p_180709_2_.nextInt(4) == 0 && worldIn.getBlockState(blockpos5).getBlock().isAir(worldIn, blockpos5))
+                                        if (rand.nextInt(4) == 0 && worldIn.getBlockState(blockpos5).getBlock().isAir(worldIn, blockpos5))
                                         {
-                                            this.func_175923_a(worldIn, blockpos5, BlockVine.SOUTH_FLAG);
+                                            this.func_175923_a(worldIn, blockpos5, BlockVine.SOUTH);
                                         }
 
-                                        if (p_180709_2_.nextInt(4) == 0 && worldIn.getBlockState(blockpos2).getBlock().isAir(worldIn, blockpos2))
+                                        if (rand.nextInt(4) == 0 && worldIn.getBlockState(blockpos2).getBlock().isAir(worldIn, blockpos2))
                                         {
-                                            this.func_175923_a(worldIn, blockpos2, BlockVine.NORTH_FLAG);
+                                            this.func_175923_a(worldIn, blockpos2, BlockVine.NORTH);
                                         }
                                     }
                                 }
                             }
                         }
 
-                        if (p_180709_2_.nextInt(5) == 0 && i > 5)
+                        if (rand.nextInt(5) == 0 && i > 5)
                         {
                             for (l = 0; l < 2; ++l)
                             {
                                 for (i1 = 0; i1 < 4; ++i1)
                                 {
-                                    if (p_180709_2_.nextInt(4 - l) == 0)
+                                    if (rand.nextInt(4 - l) == 0)
                                     {
-                                        j1 = p_180709_2_.nextInt(3);
+                                        j1 = rand.nextInt(3);
                                         EnumFacing enumfacing = EnumFacing.getHorizontal(i1).getOpposite();
-                                        this.func_175905_a(worldIn, p_180709_3_.add(enumfacing.getFrontOffsetX(), i - 5 + l, enumfacing.getFrontOffsetZ()), Blocks.cocoa, j1 << 2 | EnumFacing.getHorizontal(i1).getHorizontalIndex());
+                                        this.setBlockCocoa(worldIn, rand.nextInt(3), pos.add(enumfacing.getFrontOffsetX(), i - 5 + i1, enumfacing.getFrontOffsetZ()), enumfacing);
                                     }
                                 }
                             }
@@ -240,15 +255,15 @@ public class WorldGenSymbologyTrees extends WorldGenAbstractTree
         }
     }
 
-    private void func_175923_a(World worldIn, BlockPos p_175923_2_, int p_175923_3_)
+    private void func_175923_a(World worldIn, BlockPos pos, PropertyBool prop)
     {
-        this.func_175905_a(worldIn, p_175923_2_, Blocks.vine, p_175923_3_);
+        this.setBlockByPropertyBool(worldIn, pos, Blocks.vine, prop);
         int j = 4;
 
-        for (p_175923_2_ = p_175923_2_.down(); worldIn.getBlockState(p_175923_2_).getBlock().isAir(worldIn, p_175923_2_) && j > 0; --j)
+        for (pos = pos.down(); worldIn.getBlockState(pos).getBlock().isAir(worldIn, pos) && j > 0; --j)
         {
-            this.func_175905_a(worldIn, p_175923_2_, Blocks.vine, p_175923_3_);
-            p_175923_2_ = p_175923_2_.down();
+            this.setBlockByPropertyBool(worldIn, pos, Blocks.vine, prop);
+            pos = pos.down();
         }
     }
 }

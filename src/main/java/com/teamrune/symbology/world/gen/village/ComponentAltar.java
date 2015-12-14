@@ -40,7 +40,7 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 
     public static ComponentAltar buildComponent(StructureVillagePieces.Start start, List l, Random rand, int x, int y, int z, EnumFacing face, int weight)
     {
-        StructureBoundingBox structureboundingbox = StructureBoundingBox.func_175897_a(x, y, z, 0, 0, 0, 10, 7, 10, face);
+        StructureBoundingBox structureboundingbox = StructureBoundingBox.getComponentToAddBoundingBox(x, y, z, 0, 0, 0, 10, 7, 10, face);
         return canVillageGoDeeper(structureboundingbox) && StructureComponent.findIntersecting(l, structureboundingbox) == null ? new ComponentAltar(start, weight, rand, structureboundingbox, face) : null;
     }
 
@@ -70,11 +70,11 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
         	for (l = 0; l <= 10; l++) {
         		int ran = rand.nextInt(99);
         		if (ran <= 9) {
-        			super.func_175811_a(worldIn, Symbology.blank_rune_block.getDefaultState(), k, 0, l, box);
+        			super.setBlockState(worldIn, Symbology.blank_rune_block.getDefaultState(), k, 0, l, box);
         		} else if(ran <= 34 && ran >= 10) {
-        			super.func_175811_a(worldIn, Blocks.gravel.getDefaultState(), k, 0, l, box);
+        			super.setBlockState(worldIn, Blocks.gravel.getDefaultState(), k, 0, l, box);
         		} else {
-        			super.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, 0, l, box);
+        			super.setBlockState(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, 0, l, box);
         		}
         	}
         }
@@ -148,7 +148,7 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 		for (k=3; k<9; k++){
 			for (l=3; l<9; l++) {
 				for (int z=-1; z>-6; z--) {
-					super.func_175811_a(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, z, l, box);
+					super.setBlockState(worldIn, Blocks.mossy_cobblestone.getDefaultState(), k, z, l, box);
 				}
 			}
 		}
@@ -156,16 +156,16 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
 		for (k=4; k<7; k++){
 			for (l=4; l<7; l++) {
 				for (int z=-1; z>-5; z--) {
-					super.func_175811_a(worldIn, Blocks.air.getDefaultState(), k, z, l, box);
+					super.setBlockState(worldIn, Blocks.air.getDefaultState(), k, z, l, box);
 				}
 			}
 		}
 		
-		this.func_180778_a(worldIn, box, rand, 5, -4, 5, ChestGenHooks.getItems(DUNGEON_CHEST, rand), ChestGenHooks.getCount(DUNGEON_CHEST, rand));
+		this.generateChestContents(worldIn, box, rand, 5, -4, 5, ChestGenHooks.getItems(DUNGEON_CHEST, rand), ChestGenHooks.getCount(DUNGEON_CHEST, rand));
 
 		for (k=3; k<9; k++){
 			for (l=3; l<9; l++) {
-				super.func_175811_a(worldIn, Blocks.tnt.getDefaultState(), k, -6, l, box);
+				super.setBlockState(worldIn, Blocks.tnt.getDefaultState(), k, -6, l, box);
 			}
 		}
 
@@ -178,11 +178,11 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
     }
     
     @Override
-    protected boolean func_180778_a(World worldIn, StructureBoundingBox p_180778_2_, Random p_180778_3_, int p_180778_4_, int p_180778_5_, int p_180778_6_, List p_180778_7_, int p_180778_8_)
+    protected boolean generateChestContents(World worldIn, StructureBoundingBox p_180778_2_, Random p_180778_3_, int p_180778_4_, int p_180778_5_, int p_180778_6_, List p_180778_7_, int p_180778_8_)
     {
         BlockPos blockpos = new BlockPos(this.getXWithOffset(p_180778_4_, p_180778_6_), this.getYWithOffset(p_180778_5_), this.getZWithOffset(p_180778_4_, p_180778_6_));
 
-        if (p_180778_2_.func_175898_b(blockpos) && worldIn.getBlockState(blockpos).getBlock() != Blocks.chest)
+        if (p_180778_2_.isVecInside(blockpos) && worldIn.getBlockState(blockpos).getBlock() != Blocks.chest)
         {
             IBlockState iblockstate = Blocks.trapped_chest.getDefaultState();
             worldIn.setBlockState(blockpos, ((BlockChest) Blocks.trapped_chest).correctFacing(worldIn, blockpos, iblockstate), 2);
@@ -210,7 +210,7 @@ public class ComponentAltar extends StructureVillagePieces.House1 {
     	} else {
     		iblockstate1 = this.func_175847_a(Blocks.stonebrick.getDefaultState().withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.byMetadata(1)));
     	}
-        super.func_175811_a(worldIn, iblockstate1, p_175811_3_, p_175811_4_, p_175811_5_, p_175811_6_);
+        super.setBlockState(worldIn, iblockstate1, p_175811_3_, p_175811_4_, p_175811_5_, p_175811_6_);
     }
 
 }

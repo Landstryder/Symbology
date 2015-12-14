@@ -8,7 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.MathHelper;
@@ -104,22 +106,22 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         }
     }
 
-    void func_180712_a(BlockPos p_180712_1_, float p_180712_2_, Block p_180712_3_)
+    void placeBlock(BlockPos pos, float f, IBlockState block)
     {
-        int i = (int)((double)p_180712_2_ + 0.618D);
+        int i = (int)((double)f + 0.618D);
 
         for (int j = -i; j <= i; ++j)
         {
             for (int k = -i; k <= i; ++k)
             {
-                if (Math.pow((double)Math.abs(j) + 0.5D, 2.0D) + Math.pow((double)Math.abs(k) + 0.5D, 2.0D) <= (double)(p_180712_2_ * p_180712_2_))
+                if (Math.pow((double)Math.abs(j) + 0.5D, 2.0D) + Math.pow((double)Math.abs(k) + 0.5D, 2.0D) <= (double)(f * f))
                 {
-                    BlockPos blockpos1 = p_180712_1_.add(j, 0, k);
+                    BlockPos blockpos1 = pos.add(j, 0, k);
                     net.minecraft.block.state.IBlockState state = this.world.getBlockState(blockpos1);
 
                     if (state.getBlock().isAir(this.world, blockpos1) || state.getBlock().isLeaves(this.world, blockpos1))
                     {
-                        this.func_175905_a(this.world, blockpos1, p_180712_3_, 0);
+                        this.setBlockAndNotifyAdequately(this.world, blockpos1, block);
                     }
                 }
             }
@@ -159,17 +161,17 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         return p_76495_1_ >= 0 && p_76495_1_ < this.leafDistanceLimit ? (p_76495_1_ != 0 && p_76495_1_ != this.leafDistanceLimit - 1 ? 3.0F : 2.0F) : -1.0F;
     }
 
-    void func_175940_a(BlockPos p_175940_1_)
+    void generateLeafNode(BlockPos pos)
     {
         for (int i = 0; i < this.leafDistanceLimit; ++i)
         {
-            this.func_180712_a(p_175940_1_.up(i), this.leafSize(i), Symbology.ash_leaves);
+            this.placeBlock(pos.up(i), this.leafSize(i), Symbology.ash_leaves.getDefaultState().withProperty(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
         }
     }
 
-    void func_175937_a(BlockPos p_175937_1_, BlockPos p_175937_2_, Block p_175937_3_)
+    void func_175937_a(BlockPos pos1, BlockPos pos2, Block block)
     {
-        BlockPos blockpos2 = p_175937_2_.add(-p_175937_1_.getX(), -p_175937_1_.getY(), -p_175937_1_.getZ());
+        BlockPos blockpos2 = pos2.add(-pos1.getX(), -pos1.getY(), -pos1.getZ());
         int i = this.func_175935_b(blockpos2);
         float f = (float)blockpos2.getX() / (float)i;
         float f1 = (float)blockpos2.getY() / (float)i;
@@ -177,9 +179,9 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
 
         for (int j = 0; j <= i; ++j)
         {
-            BlockPos blockpos3 = p_175937_1_.add((double)(0.5F + (float)j * f), (double)(0.5F + (float)j * f1), (double)(0.5F + (float)j * f2));
-            BlockAshLog.EnumAxis enumaxis = this.func_175938_b(p_175937_1_, blockpos3);
-            this.func_175903_a(this.world, blockpos3, p_175937_3_.getDefaultState().withProperty(BlockAshLog.LOG_AXIS, enumaxis));
+            BlockPos blockpos3 = pos1.add((double)(0.5F + (float)j * f), (double)(0.5F + (float)j * f1), (double)(0.5F + (float)j * f2));
+            BlockAshLog.EnumAxis enumaxis = this.func_175938_b(pos1, blockpos3);
+            this.setBlockAndNotifyAdequately(this.world, blockpos3, block.getDefaultState().withProperty(BlockAshLog.LOG_AXIS, enumaxis));
         }
     }
 
@@ -213,14 +215,14 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         return enumaxis;
     }
 
-    void func_175941_b()
+    void generateLeaves()
     {
         Iterator iterator = this.field_175948_j.iterator();
 
         while (iterator.hasNext())
         {
             WorldGenBigSymbologyTree.FoliageCoordinates foliagecoordinates = (WorldGenBigSymbologyTree.FoliageCoordinates)iterator.next();
-            this.func_175940_a(foliagecoordinates);
+            this.generateLeafNode(foliagecoordinates);
         }
     }
 
@@ -232,7 +234,7 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         return (double)p_76493_1_ >= (double)this.heightLimit * 0.2D;
     }
 
-    void func_175942_c()
+    void generateTrunk()
     {
         BlockPos blockpos = this.field_175947_m;
         BlockPos blockpos1 = this.field_175947_m.up(this.height);
@@ -247,7 +249,7 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         }
     }
 
-    void func_175939_d()
+    void generateLeafNodeBases()
     {
         Iterator iterator = this.field_175948_j.iterator();
 
@@ -316,9 +318,9 @@ public class WorldGenBigSymbologyTree extends WorldGenAbstractTree
         else
         {
             this.generateLeafNodeList();
-            this.func_175941_b();
-            this.func_175942_c();
-            this.func_175939_d();
+            this.generateLeaves();
+            this.generateTrunk();
+            this.generateLeafNodeBases();
             this.world = null; //Fix vanilla Mem leak, holds latest world
             return true;
         }
