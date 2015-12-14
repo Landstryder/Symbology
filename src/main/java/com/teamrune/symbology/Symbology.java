@@ -14,6 +14,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.common.registry.VillagerRegistry;
 
@@ -102,6 +103,7 @@ public class Symbology {
 		proxy.registerSounds();
 		proxy.registerRenders();
         CraftingRecipes.init();
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
 	@EventHandler

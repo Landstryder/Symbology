@@ -5,10 +5,11 @@
 /.settings
 /gradle
 /.classpath
-/.project
+/.metadata
 /build.gradle
 /gradlew
 /gradlew.bat
 /Symbology.iml
 /Symbology.ipr
 /Symbology.iws
+/.project
