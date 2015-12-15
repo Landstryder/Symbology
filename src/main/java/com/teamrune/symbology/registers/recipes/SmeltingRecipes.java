@@ -11,6 +11,6 @@ public class SmeltingRecipes
     public static void init()
     {
         GameRegistry.addSmelting(new ItemStack(Symbology.silver_ore), new ItemStack(Symbology.silver_ingot), (float) .1);
-        GameRegistry.addSmelting(new ItemStack(Symbology.ash_log), new ItemStack(Items.coal, 0, 1), (float) .1);
+        GameRegistry.addSmelting(new ItemStack(Symbology.ash_log), new ItemStack(Items.coal, 1, 1), (float) .1);
     }
 }
