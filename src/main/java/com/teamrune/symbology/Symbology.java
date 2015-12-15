@@ -1,6 +1,7 @@
 package com.teamrune.symbology;
 
 import com.teamrune.symbology.registers.recipes.CraftingRecipes;
+import com.teamrune.symbology.registers.recipes.SmeltingRecipes;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -103,6 +104,7 @@ public class Symbology {
 		proxy.registerSounds();
 		proxy.registerRenders();
         CraftingRecipes.init();
+        SmeltingRecipes.init();
         NetworkRegistry.INSTANCE.registerGuiHandler(this, new GuiHandler());
     }
 
