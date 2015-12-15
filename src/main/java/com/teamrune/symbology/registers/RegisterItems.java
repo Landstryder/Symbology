@@ -12,6 +12,7 @@ public class RegisterItems {
 	// Add Items
     public static void itemRegisters() {
     	Symbology.rune = new ItemRune();
+    	Symbology.compound_rune = new ItemCompoundRune();
     	Symbology.mortar = new ItemMortar();
     	Symbology.scribe = new ItemScribe();
         Symbology.rune_matrix = new ItemMatrix();
@@ -26,8 +27,9 @@ public class RegisterItems {
         Symbology.aventurine_gem = new ItemAventurineGem();
         Symbology.topaz_gem = new ItemTopazGem();
 
-        
+
         RegisterHelper.registerItem(Symbology.rune);
+        RegisterHelper.registerItem(Symbology.compound_rune);
         RegisterHelper.registerItem(Symbology.mortar);
         RegisterHelper.registerItem(Symbology.scribe);
         RegisterHelper.registerItem(Symbology.rune_matrix);

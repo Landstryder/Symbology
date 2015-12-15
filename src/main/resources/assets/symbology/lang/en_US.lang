@@ -40,6 +40,7 @@ item.rune.self_rune.name=Self Rune
 item.rune.other_rune.name=Others Rune
 item.rune.time_rune.name=Time Rune
 item.rune.world_rune.name=World Rune
+item.compound_rune.name=Compound Rune
 item.mortar.name=Mortar and Pestle
 item.scribe.name=Scribe
 item.rune_matrix.name=Rune Matrix

@@ -38,6 +38,7 @@ public class Symbology {
 	public static Symbology instance;
 	
 	public static Item rune;
+	public static Item compound_rune;
 	public static Item mortar;
 	public static Item scribe;
     public static Item rune_matrix;

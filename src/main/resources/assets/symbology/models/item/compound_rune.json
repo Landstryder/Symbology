@@ -1,0 +1,6 @@
+{
+    "parent": "symbology:item/rune",
+    "textures": {
+        "layer0": "symbology:items/runes/compound_rune"
+    }
+}
